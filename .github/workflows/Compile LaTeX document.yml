@@ -28,8 +28,7 @@ jobs:
         name: Artifact
         path: Artifact
 
-jobs:
-  repo-sync:
+  Repo-Sync:
     env:
       dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
       dst_token: ${{ secrets.GITEE_TOKEN }}
