@@ -1,0 +1,56 @@
+\ProvidesPackage{myPackages}
+%使用\usepackage{packageName}命令导入用到的packages
+
+\everymath{\displaystyle}%使行内公式用行间公式的格式排版
+\usepackage{amsmath,amsfonts,amssymb,siunitx,bm}%数学公式扩展，花体，扩展符号的基础字体支持，扩展符号定义成命令，物理量的单位，粗体的数学符号包括直立的希腊文
+%\numberwithin{equation}{section}%公式按section编号
+%\numberwithin{table}{section}%表按section编号
+%\numberwithin{figure}{section}%图按section编号
+\usepackage{multicol}%表格中的多栏条目
+\usepackage{pdflscape}%横排页面
+\usepackage{float}%浮动体控制
+\usepackage[section]{placeins}%为了避免浮动对象（图形和表格等）被排版到下一节中
+\usepackage{booktabs}%画三线表
+\usepackage[ruled,linesnumbered]{algorithm2e}%算法
+
+%Code listing, https://cn.overleaf.com/learn/latex/Code_listing
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+%Code listing, https://cn.overleaf.com/learn/latex/Code_listing
+
+%其他定义
+\newcommand{\dif}{\,\mathrm{d}}
+
+%最后引入hyperref
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=[rgb]{.23 .27 .29},
+	urlcolor=[rgb]{.23 .27 .29}, 
+	citecolor=[rgb]{.23 .27 .29},
+}

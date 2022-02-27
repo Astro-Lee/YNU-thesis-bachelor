@@ -1,0 +1,13 @@
+#https://github.com/github/gitignore/blob/main/TeX.gitignore
+main.pdf
+*.aux
+*.log
+*.out
+*.gz
+*.toc
+*.log
+*.bbl
+*.blg
+*.xdv
+*.fdb_latexmk
+*.fls
