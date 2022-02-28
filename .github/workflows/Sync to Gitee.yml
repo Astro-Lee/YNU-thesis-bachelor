@@ -14,9 +14,9 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+      #- uses: actions/checkout@v2
+      #  with:
+      #    persist-credentials: false
 
       - name: Sync GitHub -> Gitee
         uses: Yikun/hub-mirror-action@master
