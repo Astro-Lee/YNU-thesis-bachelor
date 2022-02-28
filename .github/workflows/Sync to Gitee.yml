@@ -4,21 +4,24 @@ on:
   push:
     branches:
       - main
+
 jobs:
-  repo-sync:
+  Repo-Sync:
     env:
       dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
       dst_token: ${{ secrets.GITEE_TOKEN }}
       gitee_user: ${{ secrets.GITEE_USER }}
+
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Sync Github -> Gitee
+        if: env.dst_key && env.dst_token && env.gitee_user
+
+        uses: actions/checkout@v2
         with:
           persist-credentials: false
 
-      - name: sync github -> gitee
         uses: Yikun/hub-mirror-action@master
-        if: env.dst_key && env.dst_token && env.gitee_user
         with:
           # 必选，需要同步的 Github 用户（源）
           src: 'github/${{ github.repository_owner }}'
