@@ -3,7 +3,7 @@ name: Compile LaTeX document
 on:
   push:
     branches:
-      - 'main/**'
+      - main
     path:
       - ['**.tex','**.cls','**.sty']
 
