@@ -1,7 +1,13 @@
 name: Compile LaTeX document
 
 on:
-  [push]
+  push:
+    branches:
+      - 'main/**'
+    path:
+      - '*.tex'
+      - '*.cls'
+      - '*.sty'
 
 jobs:
   Build_LaTeX:
