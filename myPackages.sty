@@ -14,25 +14,30 @@
 \usepackage[ruled,linesnumbered]{algorithm2e}%算法
 
 %Code listing, https://cn.overleaf.com/learn/latex/Code_listing
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegreen}{RGB}{0, 127, 0}
+\definecolor{codegray}{RGB}{102, 102, 102}
+\definecolor{codepurple}{RGB}{170, 33, 255}
+\definecolor{backcolour}{RGB}{247, 247, 247}
+\definecolor{codered}{RGB}{186, 33, 33}
+\definecolor{comments}{RGB}{63, 127, 127}
 
 \usepackage{listings}
 \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},   
-	commentstyle=\color{codegreen},
-	keywordstyle=\color{magenta},
+	commentstyle=\color{comments},
+	keywordstyle=\color{magenta}\bfseries,
 	numberstyle=\tiny\color{codegray},
-	stringstyle=\color{codepurple},
+	identifierstyle=,
+	stringstyle=\color{codered},
 	basicstyle=\ttfamily\footnotesize,
 	breakatwhitespace=false,         
 	breaklines=true,                 
 	captionpos=b,                    
 	keepspaces=true,                 
-	numbers=left,                    
-	numbersep=5pt,                  
+	numbers=left, %tiny numbers
+	numbersep=5pt, %5pt distance to the listing
+	%numberstyle=\tiny, %tiny numbers
+	stepnumber=2, %each second line
 	showspaces=false,                
 	showstringspaces=false,
 	showtabs=false,                  

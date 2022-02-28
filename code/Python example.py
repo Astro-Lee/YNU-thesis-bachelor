@@ -1,3 +1,5 @@
+#这是一个示例代码
+string = 'Example'
 import numpy as np
     
 def incmatrix(genl1,genl2):
