@@ -5,9 +5,7 @@ on:
     branches:
       - 'main/**'
     path:
-      - '**.tex'
-      - '**.cls'
-      - '**.sty'
+      - ['**.tex','**.cls','**.sty']
 
 jobs:
   Build_LaTeX:
