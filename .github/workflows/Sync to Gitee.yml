@@ -1,5 +1,6 @@
 # 通过 Github actions， 在 Github 仓库的每一次 commit 后自动同步到 Gitee 上, https://juejin.cn/post/6894928345830522887, https://www.cnblogs.com/ssgeek/p/15009012.html
 name: Sync to Gitee
+
 on:
   push:
     branches:
@@ -13,7 +14,7 @@ jobs:
       gitee_user: ${{ secrets.GITEE_USER }}
 
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Sync GitHub -> Gitee
         uses: Yikun/hub-mirror-action@master
