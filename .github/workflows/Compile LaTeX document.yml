@@ -14,6 +14,9 @@ jobs:
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v2
+
+    - name: Set time zone
+      run: sudo timedatectl set-timezone 'Asia/Shanghai'
       
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v2
