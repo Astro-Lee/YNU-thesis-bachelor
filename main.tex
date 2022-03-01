@@ -47,11 +47,7 @@
 	\subsubsection{图表}
 		内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
 		
-		\lstinputlisting[language=python,
-		float=htbp,
-		caption={Example code},
-		label=Example,
-		]{code/Python example.py}
+		\lstinputlisting[language=python,float=htbp,]{code/Python example.py}
 		
 		内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内。容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容。
 	
@@ -62,7 +58,7 @@
 		\label{fig:fig}
 	\end{figure}
 
-	内容内容内容，引用图片\autoref{fig:fig}内容内容内容
+	内容内容内容，引用图片\ref{fig:fig}内容内容内容
 	\begin{verbatim}
 		\begin{figure}[htbp]
 			\centering
@@ -77,7 +73,7 @@
 	
 	\begin{table}[htbp]
 		\centering
-		\caption{An example table.}
+		\caption{An example Table.}
 		\label{tab:example}
 		\begin{tabular}{lcc}
 			\toprule
@@ -90,11 +86,11 @@
 			\bottomrule
 		\end{tabular}
 	\end{table}
-	\autoref{tab:example} 由如下代码生成：
+	\ref{tab:example} 由如下代码生成：
 	\begin{verbatim}
 		\begin{table}[htbp]
 			\centering
-			\caption{An example table.}
+			\caption{An example Table.}
 			\label{tab:example}
 			\begin{tabular}{lcc}
 				\toprule
@@ -115,22 +111,25 @@
 	\begin{align}
 		a^2+b^2=c^2\label{eq:0}
 	\end{align}
-	\autoref{eq:0}代码如下：
+	\ref{eq:0}代码如下：
 	\begin{verbatim}
 		\begin{align}
 			a^2+b^2=c^2\label{eq:0}
 		\end{align}
 	\end{verbatim}
-	
+
+	\[
+		a^2+b^2=c^2
+	\]
 	\section{结论}
 	引用\cite{向守平2008天体物理概论}。引用\cite{BQC_2020}。
 	\begin{acknowledgement}
 		致谢。
 	\end{acknowledgement}
 
-	\begin{reference}%参考文献
-		\bibliography{references/references.bib}%.bib文件路径, 文献的bibtex格式信息
-	\end{reference}
+	\reference{references/references.bib}%参考文献,引入文献的bibtex格式信息，填bib文件路径
+	
+	\lstinputlisting[language=latex]{main.tex}
 	
 	\backcover%封底
 \end{document}

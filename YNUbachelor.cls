@@ -231,7 +231,7 @@
 \newenvironment{acknowledgement}[1]{\newpage\begin{center}\section*{\acknowledgementname}\end{center} \addcontentsline{toc}{section}{\acknowledgementname} \par #1}{\newpage}
 
 %==========================================references参考文献设置
-\newenvironment{reference}{\newpage\centering}{\addcontentsline{toc}{section}{\refname}\newpage}
+\newcommand{\reference}[1]{\newpage\centering \bibliography{#1} \addcontentsline{toc}{section}{\refname}\newpage}
 
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
 %\RequirePackage{gbt7714}
@@ -247,6 +247,56 @@
 \def\equationautorefname~#1\null{公式\,(#1)\,\null}
 \def\figureautorefname~#1\null{图\,#1\,\null}
 \def\tableautorefname~#1\null{表\,#1\null}
+\renewcommand{\ref}[1]{\autoref{#1}}
+
+\RequirePackage{listings}
+%http://latexcolor.com/
+\lstdefinelanguage{latex}{
+	basicstyle=\small\ttfamily,%整体格式设置
+	backgroundcolor=\color[RGB]{247, 247, 247},
+	columns=fullflexible,
+	tabsize=4,
+	%代码框, 四个角, 框线宽
+	frame=single,
+	frameround=tttt,
+	%framerule=0pt,
+	%断行
+	breaklines=true,
+	breakindent=0pt,
+	%行号
+	numbers=left, 
+	numbersep=6pt, 
+	numberstyle=\tiny\color[RGB]{102, 102, 102},
+	%stepnumber=2,
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LaTeX language 设置
+	%定义注释
+	morecomment=[l]{\%},
+	commentstyle={\color[RGB]{63, 127, 127}},
+	%环境 开始与结束
+	morekeywords={begin,end},
+	keywordstyle={\color{blue!70!black}\bfseries},
+	%导言区命令
+	morekeywords={[2]documentclass,usepackage},
+	keywordstyle={[2]\color{red!75!black}\bfseries},
+	%类和包
+	morekeywords={[3]YNUbachelor,myPackages},
+	keywordstyle={[3]\color[RGB]{119, 158, 203}\bfseries},
+	%个人信息
+	morekeywords={[4]title,school,author,studentID,major,teacher},
+	keywordstyle={[4]\color{red!80}\bfseries},
+	%命令名
+	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,ref,cite,acknowledgement,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,},
+	keywordstyle={[5]\color{cyan!70!black}\bfseries},
+	%环境名
+	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align},
+	keywordstyle={[6]\color[RGB]{90, 79, 207}\bfseries},
+	%章节
+	morekeywords={[7]section,subsection,subsubsection},
+	keywordstyle={[7]\color[RGB]{201, 105, 35}\bfseries},
+	%morecomment=[n][\bfseries]{\\\[}{\\\]},
+	%行内公式
+	%morecomment=[s][\bfseries]{$}{$},
+}
 
 %==========================================hyperref超链接设置
 \RequirePackage{hyperref}

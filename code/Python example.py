@@ -1,6 +1,7 @@
 #这是一个示例代码
 string = 'Example'
 import numpy as np
+from matplotlib import pyplot as plt
     
 def incmatrix(genl1,genl2):
     m = len(genl1)
