@@ -73,7 +73,7 @@
 \newcommand{\otherFontSize}{\zihao{5} \songti}%摘要、关键词、参考文献字体格式设置
 
 %==========================================covers封面
-\RequirePackage[pages=some,firstpage=true,contents={},angle=0,scale=1]{background}
+\RequirePackage[pages=some,firstpage=true,contents={},angle=0,scale=0.999]{background}
 \RequirePackage{setspace}%行距控制
 
 \def\school#1{\gdef\@school{#1}}%定义学院
@@ -247,15 +247,19 @@
 \def\equationautorefname~#1\null{公式\,(#1)\,\null}
 \def\figureautorefname~#1\null{图\,#1\,\null}
 \def\tableautorefname~#1\null{表\,#1\null}
-\renewcommand{\ref}[1]{\autoref{#1}}
 
 \RequirePackage{listings}
+%\renewcommand{\lstlistingname}{代码片段}
+%\renewcommand{\lstlistlistingname}{代码片段目录}
 %http://latexcolor.com/
 \lstdefinelanguage{latex}{
 	basicstyle=\small\ttfamily,%整体格式设置
 	backgroundcolor=\color[RGB]{247, 247, 247},
+	%字符列为非等宽
 	columns=fullflexible,
+	%换行缩进
 	tabsize=4,
+	showtabs=false,
 	%代码框, 四个角, 框线宽
 	frame=single,
 	frameround=tttt,
@@ -263,18 +267,25 @@
 	%断行
 	breaklines=true,
 	breakindent=0pt,
+	breakatwhitespace=false,
+	%允许的空行数,大于1的空行将被省略,但行号仍被计算
+	emptylines=*1,
 	%行号
 	numbers=left, 
 	numbersep=6pt, 
 	numberstyle=\tiny\color[RGB]{102, 102, 102},
+	numberblanklines=false,
 	%stepnumber=2,
+	%展示空格
+	showspaces=false,                
+	showstringspaces=false,
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LaTeX language 设置
 	%定义注释
 	morecomment=[l]{\%},
 	commentstyle={\color[RGB]{63, 127, 127}},
 	%环境 开始与结束
-	morekeywords={begin,end},
-	keywordstyle={\color{blue!70!black}\bfseries},
+	morekeywords={[1]begin,end},
+	keywordstyle={[1]\color{blue!70!black}\bfseries},
 	%导言区命令
 	morekeywords={[2]documentclass,usepackage},
 	keywordstyle={[2]\color{red!75!black}\bfseries},
@@ -285,10 +296,10 @@
 	morekeywords={[4]title,school,author,studentID,major,teacher},
 	keywordstyle={[4]\color{red!80}\bfseries},
 	%命令名
-	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,ref,cite,acknowledgement,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,},
+	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,},
 	keywordstyle={[5]\color{cyan!70!black}\bfseries},
 	%环境名
-	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align},
+	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement},
 	keywordstyle={[6]\color[RGB]{90, 79, 207}\bfseries},
 	%章节
 	morekeywords={[7]section,subsection,subsubsection},
@@ -296,6 +307,7 @@
 	%morecomment=[n][\bfseries]{\\\[}{\\\]},
 	%行内公式
 	%morecomment=[s][\bfseries]{$}{$},
+	%morecomment=[s][\bfseries]{\{}{\}},
 }
 
 %==========================================hyperref超链接设置

@@ -58,7 +58,7 @@
 		\label{fig:fig}
 	\end{figure}
 
-	内容内容内容，引用图片\ref{fig:fig}内容内容内容
+	内容内容内容，引用图片\autoref{fig:fig}内容内容内容
 	\begin{verbatim}
 		\begin{figure}[htbp]
 			\centering
@@ -68,7 +68,6 @@
 		\end{figure}
 	\end{verbatim}
 	
-
 	内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内。容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容。
 	
 	\begin{table}[htbp]
@@ -86,7 +85,7 @@
 			\bottomrule
 		\end{tabular}
 	\end{table}
-	\ref{tab:example} 由如下代码生成：
+	\autoref{tab:example} 由如下代码生成：
 	\begin{verbatim}
 		\begin{table}[htbp]
 			\centering
@@ -111,7 +110,7 @@
 	\begin{align}
 		a^2+b^2=c^2\label{eq:0}
 	\end{align}
-	\ref{eq:0}代码如下：
+	\autoref{eq:0}代码如下：
 	\begin{verbatim}
 		\begin{align}
 			a^2+b^2=c^2\label{eq:0}
@@ -129,7 +128,7 @@
 
 	\reference{references/references.bib}%参考文献,引入文献的bibtex格式信息，填bib文件路径
 	
-	\lstinputlisting[language=latex]{main.tex}
+	\lstinputlisting[language=latex,caption={\LaTeX~Source Code}]{main.tex}
 	
 	\backcover%封底
 \end{document}
