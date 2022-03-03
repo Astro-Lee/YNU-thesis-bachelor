@@ -24,22 +24,17 @@
 \RequirePackage{xeCJK}
 
 %简体中文 宋体
-\setCJKmainfont{SimSun.ttc}[
-	AutoFakeBold=true, 
-	Path=fonts/, 
-	UprightFeatures={FontIndex=0},
-]
-\setCJKfamilyfont{song}{SimSun.ttc}[
-	AutoFakeBold=true, 
-	Path=fonts/, 
-	UprightFeatures={FontIndex=0},
-]
+\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/]
+\setCJKfamilyfont{song}{SimSun.ttf}[AutoFakeBold=true, Path=fonts/]
 \newcommand{\songti}{\CJKfamily{song}}
 
 %简体中文 黑体
 \setCJKsansfont{SimHei.ttf}[AutoFakeBold=true, Path=fonts/]
 \setCJKfamilyfont{hei}{SimHei.ttf}[AutoFakeBold=true, Path=fonts/]
 \newcommand{\heiti}{\CJKfamily{hei}}
+
+%简体中文 仿宋
+\setCJKmonofont{SimFang.ttf}[AutoFakeBold=true, Path=fonts/]
 
 %英文衬线字体 Serif
 \setmainfont{TimesNewRoman-Regular.ttf}[
@@ -251,12 +246,13 @@
 \RequirePackage{listings}
 %\renewcommand{\lstlistingname}{代码片段}
 %\renewcommand{\lstlistlistingname}{代码片段目录}
+
 %http://latexcolor.com/
 \lstdefinelanguage{latex}{
 	basicstyle=\small\ttfamily,%整体格式设置
 	backgroundcolor=\color[RGB]{247, 247, 247},
 	%字符列为非等宽
-	columns=fullflexible,
+	flexiblecolumns=true,
 	%换行缩进
 	tabsize=4,
 	showtabs=false,
@@ -304,11 +300,10 @@
 	%章节
 	morekeywords={[7]section,subsection,subsubsection},
 	keywordstyle={[7]\color[RGB]{201, 105, 35}\bfseries},
-	%morecomment=[n][\bfseries]{\\\[}{\\\]},
-	%行内公式
-	%morecomment=[s][\bfseries]{$}{$},
-	%morecomment=[s][\bfseries]{\{}{\}},
 }
+\lstnewenvironment{latexcode}
+{\lstset{language=latex}}
+{}
 
 %==========================================hyperref超链接设置
 \RequirePackage{hyperref}
