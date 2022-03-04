@@ -178,7 +178,7 @@
 \ctexset{
 	tocdepth=3,%目录深度
 	secnumdepth=3,%section深度, 仅section, subsection, subsubsection可用
-	punct=quanjiao,%标点
+	punct=quanjiao,%全角标点
 	autoindent=2,
 	today=small,
 	contentsname={目录},
@@ -292,17 +292,17 @@
 	morekeywords={[4]title,school,author,studentID,major,teacher},
 	keywordstyle={[4]\color{red!80}\bfseries},
 	%命令名
-	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,},
+	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,lstinline},
 	keywordstyle={[5]\color{cyan!70!black}\bfseries},
 	%环境名
-	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement},
+	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement,latexcode},
 	keywordstyle={[6]\color[RGB]{90, 79, 207}\bfseries},
 	%章节
 	morekeywords={[7]section,subsection,subsubsection},
 	keywordstyle={[7]\color[RGB]{201, 105, 35}\bfseries},
 }
 \lstnewenvironment{latexcode}
-{\lstset{language=latex}}
+{\lstset{language=latex,numbers=none}}
 {}
 
 %==========================================hyperref超链接设置
