@@ -3,9 +3,9 @@
 
 \everymath{\displaystyle}%使行内公式用行间公式的格式排版
 \usepackage{amsmath,amsfonts,amssymb,siunitx,bm}%数学公式扩展，花体，扩展符号的基础字体支持，扩展符号定义成命令，物理量的单位，粗体的数学符号包括直立的希腊文
-%\numberwithin{equation}{section}%公式按section编号
-%\numberwithin{table}{section}%表按section编号
-%\numberwithin{figure}{section}%图按section编号
+\numberwithin{equation}{section}%公式按section编号
+\numberwithin{table}{section}%表按section编号
+\numberwithin{figure}{section}%图按section编号
 \usepackage{multicol}%表格中的多栏条目
 \usepackage{pdflscape}%横排页面
 \usepackage{float}%浮动体控制
@@ -22,13 +22,13 @@
 \definecolor{comments}{RGB}{63, 127, 127}
 
 \lstdefinestyle{codestyle}{
+	basicstyle=\ttfamily\footnotesize,
 	backgroundcolor=\color{backcolour},   
 	commentstyle=\color{comments},
 	keywordstyle=\color{codegreen}\bfseries,
 	numberstyle=\tiny\color{codegray},
 	identifierstyle=,
 	stringstyle=\color{codered},
-	basicstyle=\ttfamily\footnotesize,
 	breakatwhitespace=false,
 	breaklines=true,
 	captionpos=b,
@@ -43,11 +43,13 @@
 	tabsize=2,
 	extendedchars=false,
 	frame=single,
-	frameround=tttt
+	frameround=tttt,
+	%允许的空行数,大于1的空行将被省略,但行号仍被计算
+	emptylines=*1,
+	numberblanklines=false,
 }
 %\lstset{style=codestyle}
 
-%Code listing, https://cn.overleaf.com/learn/latex/Code_listing
 
 %其他定义
 \newcommand{\dif}{\,\mathrm{d}}

@@ -239,6 +239,9 @@
 \RequirePackage{graphicx}%插入图片
 \graphicspath{{figures/}}
 
+\RequirePackage{caption}%图表标题
+\RequirePackage{subcaption}%子图表标题
+
 \def\equationautorefname~#1\null{公式\,(#1)\,\null}
 \def\figureautorefname~#1\null{图\,#1\,\null}
 \def\tableautorefname~#1\null{表\,#1\null}
@@ -292,10 +295,10 @@
 	morekeywords={[4]title,school,author,studentID,major,teacher},
 	keywordstyle={[4]\color{red!80}\bfseries},
 	%命令名
-	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,lstinline},
+	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,lstinline,heavyrulewidth,lightrulewidth,cmidrulewidth,cmidrule,verb,item,lstset},
 	keywordstyle={[5]\color{cyan!70!black}\bfseries},
 	%环境名
-	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement,latexcode},
+	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement,latexcode,minipage,enumerate,itemize},
 	keywordstyle={[6]\color[RGB]{90, 79, 207}\bfseries},
 	%章节
 	morekeywords={[7]section,subsection,subsubsection},
