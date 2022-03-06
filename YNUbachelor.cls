@@ -24,8 +24,8 @@
 \RequirePackage{xeCJK}
 
 %简体中文 宋体
-\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/]
-\setCJKfamilyfont{song}{SimSun.ttf}[AutoFakeBold=true, Path=fonts/]
+\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
+\setCJKfamilyfont{song}{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
 \newcommand{\songti}{\CJKfamily{song}}
 
 %简体中文 黑体
