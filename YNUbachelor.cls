@@ -68,7 +68,7 @@
 \newcommand{\otherFontSize}{\zihao{5} \songti}%摘要、关键词、参考文献字体格式设置
 
 %==========================================covers封面
-\RequirePackage[pages=some,firstpage=true,contents={},angle=0,scale=0.999]{background}
+\RequirePackage{wallpaper}%封面背景
 \RequirePackage{setspace}%行距控制
 
 \def\school#1{\gdef\@school{#1}}%定义学院
@@ -85,7 +85,7 @@
 
 \newcommand{\cover}{
 	\null
-	\backgroundsetup{contents=\includegraphics{covers/cover.pdf}}
+	\ThisCenterWallPaper{1}{covers/cover.pdf}
 	
 	\vspace{10.9cm}\hspace{1.4cm}
 		\parbox[t][2cm][l]{31em}{\begin{spacing}{2.3}\zihao{4} \hskip 4em \@title\end{spacing}}\par
