@@ -37,7 +37,7 @@
 \setCJKmonofont{SimFang.ttf}[AutoFakeBold=true, Path=fonts/]
 
 %英文衬线字体 Serif
-\setmainfont{TimesNewRoman-Regular.ttf}[
+\setmainfont{TimesNewRoman-Regular.ttf}[%
 	Path=fonts/,
 	BoldFont=TimesNewRoman-Bold.ttf,
 	ItalicFont=TimesNewRoman-Italic.ttf,
@@ -45,7 +45,7 @@
 ]
 
 %英文无衬线字体 Sans Serif
-\setsansfont{Helvetica-Regular.ttf}[
+\setsansfont{Helvetica-Regular.ttf}[%
 	Path=fonts/,
 	BoldFont=Helvetica-Bold.ttf,
 	ItalicFont=Helvetica-Oblique.ttf,
@@ -53,7 +53,7 @@
 ]
 
 %英文等宽字体 Monospace
-\setmonofont{CourierNew-Regular.ttf}[
+\setmonofont{CourierNew-Regular.ttf}[%
 	Path = fonts/,
 	BoldFont=CourierNew-Bold.ttf,
 	ItalicFont=CourierNew-Italic.ttf,
@@ -67,8 +67,8 @@
 \newcommand{\erCengBiaoTi}{\zihao{4} \bfseries \songti}%二层及以下标题格式设置
 \newcommand{\otherFontSize}{\zihao{5} \songti}%摘要、关键词、参考文献字体格式设置
 
-%==========================================covers封面
-\RequirePackage{wallpaper}%封面背景
+%==========================================covers封面https://zhuanlan.zhihu.com/p/19734756
+\RequirePackage{eso-pic}%封面背景
 \RequirePackage{setspace}%行距控制
 
 \def\school#1{\gdef\@school{#1}}%定义学院
@@ -83,34 +83,43 @@
 \def\teacher#1{\gdef\@teacher{#1}}%定义指导教师
 \def\@teacher{\@latex@warning{No \noexpand\teacher given}}%如果没有提供机构命令，系统将会给出警告信息
 
-\newcommand{\cover}{
-	\null
-	\ThisCenterWallPaper{1}{covers/cover.pdf}
-	
-	\vspace{10.9cm}\hspace{1.4cm}
-		\parbox[t][2cm][l]{31em}{\begin{spacing}{2.3}\zihao{4} \hskip 4em \@title\end{spacing}}\par
-	\vspace{1.2cm}\hspace{5.9cm}
-		\makebox[17em][c]{\zihao{4} \@school}\par
-	\vspace{0.65cm}\hspace{5.9cm}
-		\makebox[17em][c]{\zihao{4} \@author}\par
-	\vspace{0.66cm}\hspace{5.9cm}
-		\makebox[17em][c]{\zihao{4} \@studentID}\par
-	\vspace{0.675cm}\hspace{5.9cm}
-		\makebox[17em][c]{\zihao{4} \@major}\par
-	\vspace{0.67cm}\hspace{5.9cm}
-		\makebox[17em][c]{\zihao{4} \@teacher}\par
-	\vspace{2.25cm}\hspace{9.6cm}
-		\makebox[4em][c]{\zihao{4} \number\year}\hskip1em
-		\makebox[3.6em][c]{\zihao{4}\number\month}\hskip1em
-		\makebox[3.6em][c]{\zihao{4} \number\day}\par
-	
-	\thispagestyle{empty}\newpage
+%\ThisCenterWallPaper{1}{covers/cover.pdf}
+
+\newcommand{\cover}{%
+	\AddToShipoutPicture*{%
+		\put(0,0){%
+			\parbox[b][\paperheight]{\paperwidth}{%
+				\vfill
+				\centering
+				\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]%
+				{covers/cover.pdf}
+				\vfill}}
+			
+		\put(5.3cm,15.1cm){%
+			\parbox[t][2cm][l]{31em}{\begin{spacing}{2.3}\zihao{4} \hskip 4em \@title\end{spacing}}}
+		
+		\put(9.7cm,11.85cm){\makebox[18em][c]{\zihao{4} \@school}}
+		
+		\put(9.7cm,10.45cm){\makebox[18em][c]{\zihao{4} \@author}}
+		
+		\put(9.7cm,9cm){\makebox[18em][c]{\zihao{4} \@studentID}}
+		
+		\put(9.7cm,7.55cm){\makebox[18em][c]{\zihao{4} \@major}}
+		
+		\put(9.7cm,6.15cm){\makebox[18em][c]{\zihao{4} \@teacher}}
+		
+		\put(13.55cm,3.2cm){%
+			\makebox[4em][c]{\zihao{4} \number\year}\hskip1em
+			\makebox[3.6em][c]{\zihao{4} \number\month}\hskip1em
+			\makebox[3.6em][c]{\zihao{4} \number\day}}
+	}
+	\thispagestyle{empty}~\newpage
 }
 
 %封底
 \newcommand{\backcover}{\newpage~\thispagestyle{empty}}	
 %==========================================毕业论文（设计）独创性声明及使用授权
-\newcommand{\copyrightpage}{
+\newcommand{\copyrightpage}{%
 	\begin{center}
 		\heiti \zihao{-2}毕业论文（设计）独创性声明及使用授权
 	\end{center}\vskip 2em
@@ -128,7 +137,7 @@
 	\thispagestyle{empty}\newpage}
 
 %==========================================maketitle设置
-\def\@maketitle{
+\def\@maketitle{%
 	\null
 	\begin{center}
 		{\heiti \zihao{-2} \@title}
