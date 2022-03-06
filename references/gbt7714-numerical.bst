@@ -66,8 +66,8 @@ FUNCTION {load.config}
   #0 'year.after.author :=
   #1 'period.after.author :=
   #1 'italic.book.title :=
-  #1 'sentence.case.title :=
-  #0 'link.title :=
+  #0 'sentence.case.title :=
+  #1 'link.title :=
   #1 'title.in.journal :=
   #0 'show.patent.country :=
   #1 'show.mark :=
@@ -83,9 +83,9 @@ FUNCTION {load.config}
   #0 'only.start.page :=
   #0 'wave.dash.in.pages :=
   #1 'show.urldate :=
-  #1 'show.url :=
-  #1 'show.doi :=
-  #1 'show.preprint :=
+  #0 'show.url :=
+  #0 'show.doi :=
+  #0 'show.preprint :=
   #0 'show.note :=
   #0 'show.english.translation :=
   #1 'end.with.period :=

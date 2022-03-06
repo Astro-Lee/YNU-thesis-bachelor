@@ -67,8 +67,9 @@
 \newcommand{\erCengBiaoTi}{\zihao{4} \bfseries \songti}%二层及以下标题格式设置
 \newcommand{\otherFontSize}{\zihao{5} \songti}%摘要、关键词、参考文献字体格式设置
 
-%==========================================covers封面https://zhuanlan.zhihu.com/p/19734756
-\RequirePackage{eso-pic}%封面背景
+%==========================================covers封面
+%https://zhuanlan.zhihu.com/p/19734756
+\RequirePackage{eso-pic}%插入封面
 \RequirePackage{setspace}%行距控制
 
 \def\school#1{\gdef\@school{#1}}%定义学院
@@ -83,8 +84,6 @@
 \def\teacher#1{\gdef\@teacher{#1}}%定义指导教师
 \def\@teacher{\@latex@warning{No \noexpand\teacher given}}%如果没有提供机构命令，系统将会给出警告信息
 
-%\ThisCenterWallPaper{1}{covers/cover.pdf}
-
 \newcommand{\cover}{%
 	\AddToShipoutPicture*{%
 		\put(0,0){%
@@ -92,7 +91,7 @@
 				\vfill
 				\centering
 				\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]%
-				{covers/cover.pdf}
+				{figures/cover.pdf}
 				\vfill}}
 			
 		\put(5.3cm,15.1cm){%
@@ -318,14 +317,17 @@
 {}
 
 %==========================================hyperref超链接设置
-\RequirePackage{hyperref}
-\hypersetup{
-	breaklinks=true,
-	unicode=true,
-	linktoc=all,
-	bookmarksopen=true,
-	bookmarksnumbered=true,
-	pdfstartview=FitH,
-	pdftitle={云南大学本科毕业论文(设计)},
-	pdfcreator={YNU-thesis-bachelor \thesisversion},
+\AtEndOfPackage{
+	\RequirePackage{hyperref}
+	\hypersetup{
+		breaklinks=true,
+		unicode=true,
+		linktoc=all,
+		bookmarksopen=true,
+		bookmarksnumbered=true,
+		pdfstartview=FitH,
+		pdftitle={云南大学本科毕业论文(设计)},
+		pdfcreator={YNU-thesis-bachelor \thesisversion},
+	}
 }
+
