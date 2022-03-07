@@ -5,8 +5,10 @@
 ## 介绍
 云南大学本科毕业论文(设计) LaTeX 模板根据[《云南大学本科学生毕业论文(设计)工作要求及规范》](http://www.jwc.ynu.edu.cn/info/1003/2052.htm)编写，**个人能力、精力有限，不保证完全符合规范！此外，该模板未经学校官方核准，如有顾虑，慎用！**
 
-## 推荐阅读
-- [lshort-zh-cn](http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf)
+## 建议
+- 入门推荐阅读[lshort-zh-cn](http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf)
+- 任务期限在三个月以内不推荐新手使用 LaTeX
+
 
 ## 编辑
 ### [Overleaf在线编辑器](https://cn.overleaf.com/login)
