@@ -27,13 +27,9 @@
 
 %简体中文 宋体
 \setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
-\setCJKfamilyfont{song}{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
-\newcommand{\songti}{\CJKfamily{song}}
 
 %简体中文 黑体
 \setCJKsansfont{SimHei.ttf}[AutoFakeBold=true, Path=fonts/]
-\setCJKfamilyfont{hei}{SimHei.ttf}[AutoFakeBold=true, Path=fonts/]
-\newcommand{\heiti}{\CJKfamily{hei}}
 
 %简体中文 仿宋
 \setCJKmonofont{SimFang.ttf}[AutoFakeBold=true, Path=fonts/]
@@ -64,10 +60,10 @@
 ]
 
 %==========================================字体格式设置
-\newcommand{\daBiaoTi}{\zihao{3} \bfseries \songti}%大标题格式设置
-\newcommand{\yiCengBiaoTi}{\zihao{-3} \bfseries \songti}%一层标题格式设置
-\newcommand{\erCengBiaoTi}{\zihao{4} \bfseries \songti}%二层及以下标题格式设置
-\newcommand{\otherFontSize}{\zihao{5} \songti}%摘要、关键词、参考文献字体格式设置
+\newcommand{\daBiaoTi}{\zihao{3} \bfseries}%大标题格式设置
+\newcommand{\yiCengBiaoTi}{\zihao{-3} \bfseries}%一层标题格式设置
+\newcommand{\erCengBiaoTi}{\zihao{4} \bfseries}%二层及以下标题格式设置
+\newcommand{\otherFontSize}{\zihao{5}}%摘要、关键词、参考文献字体格式设置
 
 %==========================================covers封面
 %https://zhuanlan.zhihu.com/p/19734756
@@ -122,7 +118,7 @@
 %==========================================毕业论文（设计）独创性声明及使用授权
 \newcommand{\copyrightpage}{%
 	\begin{center}
-		\heiti \zihao{-2}毕业论文（设计）独创性声明及使用授权
+		\sffamily \zihao{-2}毕业论文（设计）独创性声明及使用授权
 	\end{center}\vskip 2em
 	{\zihao{4}
 		
@@ -130,7 +126,7 @@
 		
 		现就论文（设计）的使用对云南大学授权如下：学校有权保留本论文（设计）（含电子版），也可以采用影印、缩印或其他复制手段保存论文（设计）；学校有权公布论文的全部或部分内容，可以将论文（设计）用于查阅或借阅服务；学校有权向有关机构送交学位论文（设计）用于学术规范审查、社会监督或评奖；学校有权将学位论文（设计）的全部或部分内容录入有关数据库用于检索服务。
 		
-		\hskip 1em {\heiti (内部或保密的论文}（设计）{\heiti 在解密后应遵循此规定)} 
+		\hskip 1em {\sffamily (内部或保密的论文}（设计）{\sffamily 在解密后应遵循此规定)} 
 		\vskip 6em
 		
 		\noindent 作者姓名：\underline{\makebox[6em][c]{}} 导师姓名：\underline{\makebox[6em][c]{}}日 \hskip 1em 期：\underline{\makebox[6em][c]{}}
@@ -141,11 +137,11 @@
 \def\@maketitle{%
 	\null
 	\begin{center}
-		{\heiti \zihao{-2} \@title}
+		{\daBiaoTi \@title}
 		\vskip 1em
-		{\songti \zihao{-3} \@author}
+		{\zihao{-3} \@author}
 		\vskip 1em
-		{\songti \zihao{-3} \@date}
+		{\zihao{-3} \@date}
 	\end{center}
 	\par
 	\vskip 1em
@@ -169,7 +165,7 @@
 \RequirePackage{titletoc}%深度定制目录
 
 \titlecontents{section}
-[3em]{\songti\bfseries \vskip 1em}
+[3em]{\bfseries \vskip 1em}
 {\contentslabel{1.5em}}{}
 {\titlerule*[2pc]{$~$}\contentspage}
 
@@ -205,11 +201,11 @@
 
 \ctexset{
 	section = {	
-		format = \daBiaoTi,
+		format = \yiCengBiaoTi,
 		afterindent=true,
 	},
 	subsection = {	
-		format = \yiCengBiaoTi,
+		format = \erCengBiaoTi,
 		afterindent=true,
 	},
 	subsubsection = {	
@@ -305,7 +301,7 @@
 	morekeywords={[4]title,school,author,studentID,major,teacher},
 	keywordstyle={[4]\color{red!80}\bfseries},
 	%命令名
-	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,lstinline,heavyrulewidth,lightrulewidth,cmidrulewidth,cmidrule,verb,item,lstset,vspace,hspace,subcaption},
+	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,lstinline,heavyrulewidth,lightrulewidth,cmidrulewidth,cmidrule,verb,item,lstset,vspace,hspace,subcaption},
 	keywordstyle={[5]\color{cyan!70!black}\bfseries},
 	%环境名
 	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement,latexcode,minipage,enumerate,itemize,subfigure},
