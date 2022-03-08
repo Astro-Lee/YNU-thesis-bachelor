@@ -2,11 +2,11 @@
 % 作者：Lee
 % 邮箱：liruizhi@mail.ynu.edu.cn
 %==========================================Copyright
-\newcommand\thesisversion{v0.1}
+\newcommand\thesisversion{v0.0.1}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{YNUbachelor}[2021/12/24 YNU-thesis-bachelor \thesisversion, liruizhi@mail.ynu.edu.cn]
-\LoadClass[UTF8,scheme=plain,linespread=1.5,zihao=-4,fontset=none]{ctexart}%1.5倍行距,正文用小四号宋体
+\LoadClass[UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexart}
 
 %==========================================判断是否使用XeLaTeX编译
 \RequirePackage{ifxetex}
@@ -18,8 +18,10 @@
 \RequirePackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.0cm]{geometry}
 
 %==========================================字体设置
-%\RequirePackage{ifplatform}
+% 设置行距的倍数为 1.25
+\linespread{1.25}\selectfont
 
+%\RequirePackage{ifplatform}
 %字体下载 https://gitee.com/Astro-Lee/fonts
 \RequirePackage{xeCJK}
 
@@ -303,10 +305,10 @@
 	morekeywords={[4]title,school,author,studentID,major,teacher},
 	keywordstyle={[4]\color{red!80}\bfseries},
 	%命令名
-	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,lstinline,heavyrulewidth,lightrulewidth,cmidrulewidth,cmidrule,verb,item,lstset},
+	morekeywords={[5]cover,copyrightpage,maketitle,toc,keywords,enkeywords,bfseries,textbf,songti,heiti,lstinputlisting,centering,includegraphics,linewidth,caption,label,toprule,midrule,bottomrule,autoref,cite,reference,backcover,newcommand,newenvironment,renewcommand,renewenvironment,LaTeX,appendix,lstinline,heavyrulewidth,lightrulewidth,cmidrulewidth,cmidrule,verb,item,lstset,vspace,hspace,subcaption},
 	keywordstyle={[5]\color{cyan!70!black}\bfseries},
 	%环境名
-	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement,latexcode,minipage,enumerate,itemize},
+	morekeywords={[6]document,abstract,enabstract,figure,table,tabular,align,acknowledgement,latexcode,minipage,enumerate,itemize,subfigure},
 	keywordstyle={[6]\color[RGB]{90, 79, 207}\bfseries},
 	%章节
 	morekeywords={[7]section,subsection,subsubsection},

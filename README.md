@@ -16,23 +16,23 @@
 
 在Visual Studio Code的`settings.json`中添加如下代码：
 ```json
-    "latex-workshop.view.pdf.viewer":"tab",
+"latex-workshop.view.pdf.viewer":"tab",
 
-    "latex-workshop.latex.recipes": [
-        {
-          "name": "latexmk 🔃",
-          "tools": [
-            "latexmk"
-          ]
-        },],
+"latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk 🔃",
+      "tools": [
+        "latexmk"
+      ]
+    },],
 
-    "latex-workshop.latex.tools": [
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [],
-            "env": {}
-        },],
+"latex-workshop.latex.tools": [
+    {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [],
+        "env": {}
+    },],
 ```
 更多配置参考[LaTeX Workshop WiKi](https://github.com/James-Yu/LaTeX-Workshop/wiki/)。
 

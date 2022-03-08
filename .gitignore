@@ -12,3 +12,4 @@ main.pdf
 *.fdb_latexmk
 *.fls
 *.lol
+*.synctex(busy)
