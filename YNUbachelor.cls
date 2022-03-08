@@ -224,12 +224,12 @@
 %==========================================中英abstract, keywords设置
 \renewenvironment{abstract}[1]{\newpage\begin{center}\section*{\abstractname}\end{center} \addcontentsline{toc}{section}{\abstractname} \par \otherFontSize #1}{\par\pagenumbering{Roman}}
 
-\newcommand{\keywords}[1]{\vskip 1em\noindent \otherFontSize \textbf{关键词：} #1\par}
+\newcommand{\keywords}[1]{\vskip 1em\noindent {\otherFontSize \textbf{关键词：} #1}\par}
 
 \newcommand{\enabstractname}{Abstract}
 \newenvironment{enabstract}[1]{\newpage\begin{center}\section*{\enabstractname}\end{center} \addcontentsline{toc}{section}{\enabstractname} \par \otherFontSize #1}{\par}
 
-\newcommand{\enkeywords}[1]{\vskip 1em\noindent \otherFontSize \textbf{Key words：} #1\newpage\pagenumbering{arabic}}
+\newcommand{\enkeywords}[1]{\vskip 1em\noindent {\otherFontSize \textbf{Key words：} #1}\newpage\pagenumbering{arabic}}
 
 %==========================================acknowledgement致谢设置
 \newcommand{\acknowledgementname}{致谢}
