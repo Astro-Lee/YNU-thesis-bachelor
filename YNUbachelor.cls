@@ -1,24 +1,24 @@
-%==========================================Copyright
+% Copyright
 % 作者：Lee
 % 邮箱：liruizhi@mail.ynu.edu.cn
-%==========================================Copyright
+
 \newcommand\thesisversion{v0.0.1}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{YNUbachelor}[2021/12/24 YNU-thesis-bachelor \thesisversion, liruizhi@mail.ynu.edu.cn]
 \LoadClass[UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexart}
 
-%==========================================判断是否使用XeLaTeX编译
+%判断是否使用XeLaTeX编译
 \RequirePackage{ifxetex}
 \ifxetex\else
 \ClassError{YNUbachelor}{必须使用 `xelatex' 编译器进行编译\MessageBreak Please choose `xelatex'}{Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
-%==========================================页边距设置
+%页边距设置
 \RequirePackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.0cm]{geometry}
 
-%==========================================字体设置
-% 设置行距的倍数为 1.25
+%字体设置
+%设置行距的倍数为 1.25
 \linespread{1.25}\selectfont
 
 %\RequirePackage{ifplatform}
@@ -59,13 +59,13 @@
 	Scale = MatchLowercase,
 ]
 
-%==========================================字体格式设置
+%字体格式设置
 \newcommand{\daBiaoTi}{\zihao{3} \bfseries}%大标题格式设置
 \newcommand{\yiCengBiaoTi}{\zihao{-3} \bfseries}%一层标题格式设置
 \newcommand{\erCengBiaoTi}{\zihao{4} \bfseries}%二层及以下标题格式设置
 \newcommand{\otherFontSize}{\zihao{5}}%摘要、关键词、参考文献字体格式设置
 
-%==========================================covers封面
+%covers封面
 %https://zhuanlan.zhihu.com/p/19734756
 \RequirePackage{eso-pic}%插入封面
 \RequirePackage{setspace}%行距控制
@@ -114,8 +114,11 @@
 }
 
 %封底
-\newcommand{\backcover}{\newpage~\thispagestyle{empty}}	
-%==========================================毕业论文（设计）独创性声明及使用授权
+\newcommand{\backcover}{
+	\AtEndDocument{
+		\newpage~\thispagestyle{empty}
+	}}	
+%毕业论文（设计）独创性声明及使用授权
 \newcommand{\copyrightpage}{%
 	\begin{center}
 		\sffamily \zihao{-2}毕业论文（设计）独创性声明及使用授权
@@ -133,7 +136,7 @@
 	}
 	\thispagestyle{empty}\newpage}
 
-%==========================================maketitle设置
+%maketitle设置
 \def\@maketitle{%
 	\null
 	\begin{center}
@@ -160,7 +163,7 @@
 	\global\let\@teacher\@empty
 }%题名完成后，将系统内部和外部不再用到的的题名信息命令废止或清空，也就是说这些命令只能使用一次
 
-%==========================================contents目录设置
+%contents目录设置
 %http://static.latexstudio.net/article/2019/0513/titlesec_c.pdf
 \RequirePackage{titletoc}%深度定制目录
 
@@ -180,7 +183,7 @@
 {\titlerule*[1pc]{$\cdot$}\contentspage}
 
 \newcommand{\toc}{\tableofcontents\newpage\pagenumbering{arabic}}
-%==========================================ctexset设置
+%ctexset设置
 \ctexset{
 	tocdepth=3,%目录深度
 	secnumdepth=3,%section深度, 仅section, subsection, subsubsection可用
@@ -217,7 +220,7 @@
 %详细设置参见%https://zhuanlan.zhihu.com/p/401538511
 %\RequirePackage{titlesec}%深度定制标题
 
-%==========================================中英abstract, keywords设置
+%中英abstract, keywords设置
 \renewenvironment{abstract}[1]{\newpage\begin{center}\section*{\abstractname}\end{center} \addcontentsline{toc}{section}{\abstractname} \par \otherFontSize #1}{\par\pagenumbering{Roman}}
 
 \newcommand{\keywords}[1]{\vskip 1em\noindent {\otherFontSize \textbf{关键词：} #1}\par}
@@ -227,11 +230,11 @@
 
 \newcommand{\enkeywords}[1]{\vskip 1em\noindent {\otherFontSize \textbf{Key words：} #1}\newpage\pagenumbering{arabic}}
 
-%==========================================acknowledgement致谢设置
+%acknowledgement致谢设置
 \newcommand{\acknowledgementname}{致谢}
 \newenvironment{acknowledgement}[1]{\newpage\begin{center}\section*{\acknowledgementname}\end{center} \addcontentsline{toc}{section}{\acknowledgementname} \par #1}{\newpage}
 
-%==========================================references参考文献设置
+%references参考文献设置
 \newcommand{\reference}[1]{\newpage\centering \bibliography{#1} \addcontentsline{toc}{section}{\refname}\newpage}
 
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
@@ -239,7 +242,7 @@
 \bibliographystyle{references/gbt7714-numerical.bst}%gbt7714-author-year,gbt7714-numerical
 \renewcommand{\bibfont}{\otherFontSize}
 
-%==========================================其他设置
+%其他设置
 \date{\today}
 \RequirePackage{xcolor}%颜色
 \RequirePackage{graphicx}%插入图片
@@ -314,7 +317,7 @@
 {\lstset{language=latex,numbers=none}}
 {}
 
-%==========================================hyperref超链接设置
+%hyperref超链接设置
 \AtEndOfPackage{
 	\RequirePackage{hyperref}
 	\hypersetup{
@@ -328,4 +331,3 @@
 		pdfcreator={YNU-thesis-bachelor \thesisversion},
 	}
 }
-

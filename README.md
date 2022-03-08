@@ -11,8 +11,8 @@
 
 
 ## 编辑
-### [Overleaf在线编辑器](https://cn.overleaf.com/login)
-### [安装发行版软件](http://mirrors.ctan.org/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf) + [Visual Studio Code 编辑器](https://code.visualstudio.com/) + LaTeX Workshop 插件
+### [在线：Overleaf](https://cn.overleaf.com/login)
+### [本地：安装发行版软件](http://mirrors.ctan.org/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf) + [Visual Studio Code 编辑器](https://code.visualstudio.com/) + LaTeX Workshop 插件
 
 在Visual Studio Code的`settings.json`中添加如下代码：
 ```json
