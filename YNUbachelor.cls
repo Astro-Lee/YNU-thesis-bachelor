@@ -168,19 +168,19 @@
 \RequirePackage{titletoc}%深度定制目录
 
 \titlecontents{section}
-[3em]{\bfseries \vskip 1em}
+[0.2em]{\bfseries \vskip 1em}
 {\contentslabel{1.5em}}{}
 {\titlerule*[2pc]{$~$}\contentspage}
 
 \titlecontents{subsection}
-[5em]{}
+[2.2em]{}
 {\contentslabel{2em}}{}
-{\titlerule*[1.5pc]{$\cdot$}\contentspage}
+{\titlerule*[.8pc]{$\cdot$}\contentspage}
 
 \titlecontents{subsubsection}
-[8em]{}
+[5.2em]{}
 {\contentslabel{3em}}{}
-{\titlerule*[1pc]{$\cdot$}\contentspage}
+{\titlerule*[.5pc]{$\cdot$}\contentspage}
 
 \newcommand{\toc}{\tableofcontents\newpage\pagenumbering{arabic}}
 %ctexset设置
