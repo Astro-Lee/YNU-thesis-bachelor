@@ -17,13 +17,16 @@
 在Visual Studio Code的`settings.json`中添加如下代码：
 ```json
 "latex-workshop.view.pdf.viewer":"tab",
+"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+"latex-workshop.intellisense.package.enabled": true,
+"latex-workshop.latex.autoClean.run": "onFailed",
+"latex-workshop.message.error.show": false,
+"latex-workshop.message.warning.show": false,
 
 "latex-workshop.latex.recipes": [
     {
       "name": "latexmk 🔃",
-      "tools": [
-        "latexmk"
-      ]
+      "tools": ["latexmk"]
     },],
 
 "latex-workshop.latex.tools": [

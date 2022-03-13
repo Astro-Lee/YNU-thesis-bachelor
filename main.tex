@@ -415,22 +415,22 @@
 	\autoref{tab:表格列格式说明}的源代码为：
 	\begin{latexcode}
 		\begin{table}[htbp]
-		\centering
-		\caption{\LaTeX 表格列格式说明}
-		\label{tab:表格列格式说明}
-		\begin{tabular}{>{\small}l>{\footnotesize}c}%列格式说明：两列，第一列左对齐，第二列居中齐，同时使用array宏包提供的>{<内容>}（表示把<内容>插入其后所在列的开头）设置各列字体尺寸
-			\toprule %画表格顶部粗线
-			\textbf{列格式} & \textbf{\small 说明} \\%第一列标题加粗，第二列标题在加粗的同时把字体尺寸设为small，然后用\\换行
-			\midrule %画表格中间分隔线
-			\verb|l|   &   本列左对齐   \\
-			\verb|c|   &   本列居中   \\
-			\verb|r|   &   本列右对齐   \\
-			\verb|p{<宽度>}|   &   指定列宽   \\
-			\verb|||   &   绘制竖线   \\
-			\verb|@{<内容>}|   &   自定义内容   \\
-			\verb|*{<计数>}{<列格式说明>}|     &     给出\verb|<列格式说明>|的重复次数   \\
-			\bottomrule %画表格底部粗线
-		\end{tabular}
+			\centering
+			\caption{\LaTeX 表格列格式说明}
+			\label{tab:表格列格式说明}
+			\begin{tabular}{>{\small}l>{\footnotesize}c}%列格式说明：两列，第一列左对齐，第二列居中齐，同时使用array宏包提供的>{<内容>}（表示把<内容>插入其后所在列的开头）设置各列字体尺寸
+				\toprule %画表格顶部粗线
+				\textbf{列格式} & \textbf{\small 说明} \\%第一列标题加粗，第二列标题在加粗的同时把字体尺寸设为small，然后用\\换行
+				\midrule %画表格中间分隔线
+				\verb|l|   &   本列左对齐   \\
+				\verb|c|   &   本列居中   \\
+				\verb|r|   &   本列右对齐   \\
+				\verb|p{<宽度>}|   &   指定列宽   \\
+				\verb|||   &   绘制竖线   \\
+				\verb|@{<内容>}|   &   自定义内容   \\
+				\verb|*{<计数>}{<列格式说明>}|     &     给出\verb|<列格式说明>|的重复次数   \\
+				\bottomrule %画表格底部粗线
+			\end{tabular}
 		\end{table}
 	\end{latexcode}
 
@@ -484,7 +484,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=.8\linewidth]{bibtex-3}
-	\end{figure}将以上内容复制到\verb|references/references.bib|文件里。上图中的\verb|2019First|是一个标签，可修改为方便记忆的名称，便于引用文献。以下是引用文献的示例代码。若参考文献没有BibTeX数据，请参照\href{https://github.com/zepinglee/gbt7714-bibtex-style/blob/master/test/testbst/support/standard.bib}{示例文件}填写。
+	\end{figure}将以上内容复制到\verb|references/references.bib|文件里。上图中的\verb|2019First|是一个标签，可修改为方便记忆的名称，便于引用文献。以下是引用文献的示例代码。若参考文献没有BibTeX数据或BibTeX数据不正确，请参照\href{https://github.com/zepinglee/gbt7714-bibtex-style/blob/master/test/testbst/support/standard.bib}{示例文件}填写。
 
 	\begin{latexcode}
 		引用\cite{2019First}。引用\cite{向守平2008天体物理概论}。引用\cite{BQC_2020}。引用\cite{2019First,向守平2008天体物理概论,BQC_2020}。
@@ -532,7 +532,7 @@
 	\appendix
 	\section{附录}
 		\subsection{\LaTeX~Source Code}
-			\lstinputlisting[language=latex,caption={\LaTeX~Source Code}]{main.tex}
+			%\lstinputlisting[language=latex,caption={\LaTeX~Source Code}]{main.tex}
 		\subsection{Some Examples 2}
 			some text...
 
