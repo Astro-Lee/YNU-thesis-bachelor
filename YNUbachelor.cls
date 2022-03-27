@@ -319,6 +319,8 @@
 
 %hyperref超链接设置
 \AtEndOfPackage{
+	\RequirePackage[utf8]{inputenc}
+
 	\RequirePackage{hyperref}
 	\hypersetup{
 		breaklinks=true,
