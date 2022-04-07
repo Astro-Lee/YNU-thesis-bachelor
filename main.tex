@@ -46,9 +46,9 @@
 		% !TeX program = xelatex
 	\end{latexcode}
 		
-		注意：在\LaTeX 源代码中``\lstinline[language=latex]|%|''是注释符，但以上代码会指定相应的设置，因此在设置正确的前提下才能将其删去。另外，符号``\lstinline[language=latex]|\|''可以调用宏命令，形如\lstinline[language=latex]|\命令名[<可选参数>]{<必选参数>}|，也可以开启一个环境，形如\lstinline[language=latex]|\begin{<环境名>}[<可选参数>] ... \end{<环境名>}|，它还是一个转义符。这里使用符号\lstinline[language=latex]|< >|表示选项。
+		注意：在\LaTeX 源代码中``\lstinline[language=latex]|%|''是注释符，但以上代码会指定相应的设置，因此在设置正确的前提下才能将其删去。要学会使用注释符，当你知道注释哪部分内容会编译得什么效果时，那你已经具备了用\LaTeX 撰写文档的基本能力。这也是我把《用户使用手册》写进此模板中的原因。另外，符号``\lstinline[language=latex]|\|''可以调用宏命令，形如\lstinline[language=latex]|\命令名[<可选参数>]{<必选参数>}|，也可以开启一个环境，形如\lstinline[language=latex]|\begin{<环境名>}[<可选参数>] ... \end{<环境名>}|，它还是一个转义符。这里使用符号\lstinline[language=latex]|< >|表示选项。
 		
-		\subsection{文档类和所需的宏包}
+	\subsection{文档类和所需的宏包}
 		通过如下命令导入文档类和所需的宏包：
 	\begin{latexcode}
 		\documentclass{YNUbachelor}
@@ -472,7 +472,7 @@
 	\end{latexcode}
 
 	\subsection{文献引用}
-	在知网、Google Scholar、NASA/ADS等论文搜索引擎中导出参考文献的BibTeX数据。为了方便起见，以百度学术为例。先\href{https://xueshu.baidu.com/usercenter/paper/show?paperid=1w410c80b32s0jc0xj6h00709e628265}{搜索文献}
+	先在\href{https://oversea.cnki.net/}{知网}、\href{https://scholar.google.com/}{Google Scholar}和\href{https://ui.adsabs.harvard.edu/}{NASA/ADS}等论文搜索引擎中搜索文献，再在其期刊官网导出参考文献的BibTeX数据。下载BibTeX数据的方法大同小异，为了方便起见，以百度学术为例。先\href{https://xueshu.baidu.com/usercenter/paper/show?paperid=1w410c80b32s0jc0xj6h00709e628265}{搜索文献}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=.8\linewidth]{bibtex-1}

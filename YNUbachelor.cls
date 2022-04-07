@@ -256,8 +256,8 @@
 \def\tableautorefname~#1\null{表\,#1\null}
 
 \RequirePackage{listings}
-%\renewcommand{\lstlistingname}{代码片段}
-%\renewcommand{\lstlistlistingname}{代码片段目录}
+\renewcommand{\lstlistingname}{代码片段}
+\renewcommand{\lstlistlistingname}{代码片段目录}
 
 %http://latexcolor.com/
 \lstdefinelanguage{latex}{
