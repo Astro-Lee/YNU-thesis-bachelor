@@ -14,7 +14,7 @@
 ### [在线：Overleaf](https://cn.overleaf.com/login)
 ### [本地：安装发行版软件](http://mirrors.ctan.org/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf) + [Visual Studio Code 编辑器](https://code.visualstudio.com/) + LaTeX Workshop 插件
 
-在Visual Studio Code的`settings.json`中添加如下代码：
+在Visual Studio Code中使用快捷键`Ctrl+p`调出搜索框，搜索`settings.json`，并在其中添加如下代码：
 ```json
 "latex-workshop.view.pdf.viewer":"tab",
 "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
