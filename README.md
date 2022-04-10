@@ -1,6 +1,8 @@
 # YNU-thesis-bachelor
 
-[![Sync to Gitee](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Sync%20to%20Gitee.yml/badge.svg)](https://gitee.com/Astro-Lee/YNU-thesis-bachelor) [![Compile LaTeX document](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Compile%20LaTeX%20document.yml/badge.svg)](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Compile%20LaTeX%20document.yml)
+[![Sync to Gitee](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Sync%20to%20Gitee.yml/badge.svg)](https://gitee.com/Astro-Lee/YNU-thesis-bachelor) 
+[![Compile LaTeX document](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Compile%20LaTeX%20document.yml/badge.svg)](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Compile%20LaTeX%20document.yml)
+![Repo Size](https://img.shields.io/github/repo-size/Astro-Lee/YNU-thesis-bachelor?label=Repo%20size)
 
 ## 介绍
 云南大学本科毕业论文(设计) LaTeX 模板根据[《云南大学本科学生毕业论文(设计)工作要求及规范》](http://www.jwc.ynu.edu.cn/info/1003/2052.htm)编写，**个人能力、精力有限，不保证完全符合规范！此外，该模板未经学校官方核准，如有顾虑，请不要使用！**
