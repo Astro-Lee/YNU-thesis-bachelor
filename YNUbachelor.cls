@@ -1,4 +1,5 @@
 % Copyright
+% GitHub repository：https://github.com/Astro-Lee/YNU-thesis-bachelor
 % 作者：Lee
 % 邮箱：liruizhi@mail.ynu.edu.cn
 

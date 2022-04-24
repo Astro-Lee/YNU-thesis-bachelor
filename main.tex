@@ -46,7 +46,7 @@
 		% !TeX program = xelatex
 	\end{latexcode}
 		
-		注意：在\LaTeX 源代码中``\lstinline[language=latex]|%|''是注释符，但以上代码会指定相应的设置，因此在设置正确的前提下才能将其删去。要学会使用注释符，当你知道注释哪部分内容会编译得什么效果时，那你已经具备了用\LaTeX 撰写文档的基本能力。这也是我把《用户使用手册》写进此模板中的原因。另外，符号``\lstinline[language=latex]|\|''可以调用宏命令，形如\lstinline[language=latex]|\命令名[<可选参数>]{<必选参数>}|，也可以开启一个环境，形如\lstinline[language=latex]|\begin{<环境名>}[<可选参数>] ... \end{<环境名>}|，它还是一个转义符。这里使用符号\lstinline[language=latex]|< >|表示选项。
+		注意：在\LaTeX 源代码中``\lstinline[language=latex]|%|''是注释符，但以上代码会指定相应的设置，因此在设置正确的前提下才能将其删去。{\color{red}要学会使用注释符，当你知道注释(或删除)哪部分内容会编译得什么效果时，那你已经具备了用\LaTeX 撰写文档的基本能力。这也是我把《用户使用手册》写进此模板中的原因。}另外，符号``\lstinline[language=latex]|\|''可以调用宏命令，形如\lstinline[language=latex]|\命令名[<可选参数>]{<必选参数>}|，也可以开启一个环境，形如\lstinline[language=latex]|\begin{<环境名>}[<可选参数>] ... \end{<环境名>}|，它还是一个转义符。这里使用符号\lstinline[language=latex]|< >|表示选项。
 		
 	\subsection{文档类和所需的宏包}
 		通过如下命令导入文档类和所需的宏包：
@@ -337,7 +337,7 @@
 	\LaTeX 除了用来排版文字，还可用代码绘制图形，这里推荐一个绘图工具\href{https://github.com/csekri/tkzgeom}{GUI tool for TikZ figure production}。
 
 	\subsection{画三线表}
-	在研究过程中，通常将数据保存为\verb|.xlsx|或\verb|.csv|等格式，可通过\href{https://tableconvert.com/}{表格在线转换}将其转换为\LaTeX 代码。以下代码展示了一个三线表的例子。
+	在研究过程中，通常将数据保存为\verb|.xlsx|或\verb|.csv|等格式，可通过\href{https://www.tablesgenerator.com/latex_tables}{表格在线转换}将其转换为\LaTeX 代码。以下代码展示了一个三线表的例子。
 	
 	\begin{latexcode}
 		\begin{table}[htbp]
