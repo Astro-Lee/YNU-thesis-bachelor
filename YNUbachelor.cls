@@ -252,9 +252,9 @@
 \RequirePackage{caption}%图表标题
 \RequirePackage{subcaption}%子图表标题
 
-\def\equationautorefname~#1\null{公式\,(#1)\,\null}
+\def\equationautorefname~#1\null{式\,(#1)\,\null}
 \def\figureautorefname~#1\null{图\,#1\,\null}
-\def\tableautorefname~#1\null{表\,#1\null}
+\def\tableautorefname~#1\null{表\,#1\,\null}
 
 \RequirePackage{listings}
 \renewcommand{\lstlistingname}{代码片段}
