@@ -69,8 +69,8 @@
 
 %字体格式设置
 \newcommand{\yiCengBiaoTi}{\zihao{3} \heiti}%一层标题格式设置
-\newcommand{\erCengBiaoTi}{\zihao{4} \heiti}%二层及以下标题格式设置
-\newcommand{\otherFontSize}{\zihao{-4} \heiti}%摘要、关键词、参考文献字体格式设置
+\newcommand{\erCengBiaoTi}{\zihao{4} \heiti}%二层标题格式设置
+\newcommand{\otherFontSize}{\zihao{-4} \heiti}%三层及以下标题格式设置
 
 %页边距设置
 \RequirePackage[a4paper,
@@ -174,7 +174,7 @@
 %封底
 \newcommand{\backcover}{
 	\AtEndDocument{
-		\label{unknown}\clearpage~\thispagestyle{empty}
+		\clearpage~\thispagestyle{empty}
 	}}
 
 %毕业论文（设计）独创性声明及使用授权
@@ -222,12 +222,14 @@
 	\global\let\@teacher\@empty
 }%题名完成后，将系统内部和外部不再用到的的题名信息命令废止或清空，也就是说这些命令只能使用一次
 
-\RequirePackage{fancyhdr}%页眉页脚
+%页眉页脚
+\RequirePackage{lastpage}
+\RequirePackage{fancyhdr}
 \fancypagestyle{Content}{
 	\fancyhf{}
     \fancyhead[OC]{\zihao{5} \leftmark}
 	\fancyhead[EC]{\zihao{5} \@title}
-    \fancyfoot[C]{\zihao{5} 第\thepage 页（共~\pageref{unknown}~页）}
+    \fancyfoot[C]{\zihao{5} 第\thepage 页（共~\pageref{LastPage}~页）}
 	\renewcommand\headrulewidth{0.5pt}
 }
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
@@ -294,6 +296,7 @@
 \bibliographystyle{references/gbt7714-numerical.bst}%gbt7714-author-year,gbt7714-numerical
 \renewcommand{\bibfont}{\normalsize}
 
+%附录设置
 % \renewcommand\appendix{\par
 %   \setcounter{section}{0}%
 %   \setcounter{subsection}{0}%
@@ -320,8 +323,18 @@
 \AtBeginEnvironment{tabular}{\small}
 \AtBeginEnvironment{longtable}{\small}
 
+%图表的序号和标题间空一格,标题为黑体小四\otherFontSize
+\RequirePackage[tableposition=bottom,figureposition=top,labelsep=quad]{caption}%图表标题
+\RequirePackage{subcaption}%子图表标题
+\DeclareCaptionFont{heiti}{\otherFontSize}
+\captionsetup{labelfont=heiti,textfont=heiti}
+\captionsetup[figure]{labelformat=simple}
+\captionsetup[subfigure]{labelformat=parens}
+\captionsetup[table]{labelformat=simple}
+\captionsetup[subtable]{labelformat=parens}
+
 %脚注为带圈数字
-%https://zhuanlan.zhihu.com/p/74515148
+
 %https://blog.csdn.net/programchangesworld/article/details/51810520
 \RequirePackage{pifont}
 \RequirePackage[perpage,symbol*]{footmisc}
@@ -329,15 +342,12 @@
 %\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
 \setfnsymbol{circled}
 
-%图表的序号和标题间空一格,标题为黑体
-\RequirePackage[tableposition=bottom,figureposition=top,labelsep=quad]{caption}%图表标题
-\RequirePackage{subcaption}%子图表标题
-\DeclareCaptionFont{heiti}{\heiti\normalsize}
-\captionsetup{labelfont=heiti,textfont=heiti}
-\captionsetup[figure]{labelformat=simple}
-\captionsetup[subfigure]{labelformat=parens}
-\captionsetup[table]{labelformat=simple}
-\captionsetup[subtable]{labelformat=parens}
+%https://zhuanlan.zhihu.com/p/74515148
+% shorten footnote rule
+% \xpatchcmd\footnoterule
+%   {.4\columnwidth}
+%   {1in}
+%   {}{\fail}
 
 %列表环境间隔
 %https://blog.csdn.net/fandroid/article/details/54644966
@@ -345,7 +355,6 @@
 \setenumerate[1]{itemsep=-3pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setitemize[1]{itemsep=-3pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setdescription{itemsep=-3pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
-
 
 %其他设置
 \date{\today}
