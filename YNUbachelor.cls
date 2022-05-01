@@ -7,7 +7,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{YNUbachelor}[2021/12/24 YNU-thesis-bachelor \thesisversion, liruizhi@mail.ynu.edu.cn]
-\LoadClass[UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexart}
+\LoadClass[twoside,UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexart}
 
 %判断是否使用XeLaTeX编译
 \RequirePackage{ifxetex}
@@ -15,25 +15,19 @@
 \ClassError{YNUbachelor}{必须使用 `xelatex' 编译器进行编译\MessageBreak Please choose `xelatex'}{Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
-%页边距设置
-\RequirePackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.0cm]{geometry}
-
-%字体设置
-%设置行距的倍数为 1.25
-\linespread{1.25}\selectfont
-
 %\RequirePackage{ifplatform}
 %字体下载 https://gitee.com/Astro-Lee/fonts
 \RequirePackage{xeCJK}
 
 %简体中文 宋体
-\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
+\setCJKmainfont{SimSun.ttf}[Path=fonts/]%Mapping=full-stop or fullwidth-stop
 
 %简体中文 黑体
-\setCJKsansfont{SimHei.ttf}[AutoFakeBold=true, Path=fonts/]
+\setCJKsansfont{SimHei.ttf}[Path=fonts/]
+\newCJKfontfamily[heiti]\heiti{SimHei.ttf}[Path=fonts/]
 
 %简体中文 仿宋
-\setCJKmonofont{SimFang.ttf}[AutoFakeBold=true, Path=fonts/]
+\setCJKmonofont{SimFang.ttf}[Path=fonts/]
 
 %英文衬线字体 Serif
 \setmainfont{TimesNewRoman-Regular.ttf}[%
@@ -60,16 +54,80 @@
 	Scale = MatchLowercase,
 ]
 
+%标题以外,正文文字行距为固定值22pt
+%https://github.com/ustctug/ustcthesis/blob/df62a2627f42556ab421700577e3b90af3947189/ustcthesis.cls#L647
+\renewcommand\normalsize{%
+      \@setfontsize\normalsize{12bp}{22bp}%
+      \abovedisplayskip 12bp \@plus3bp \@minus7bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+      \let\@listi\@listI}%
+
+\linespread{1}\selectfont
+\normalsize
+
 %字体格式设置
-\newcommand{\daBiaoTi}{\zihao{3} \bfseries}%大标题格式设置
-\newcommand{\yiCengBiaoTi}{\zihao{-3} \bfseries}%一层标题格式设置
-\newcommand{\erCengBiaoTi}{\zihao{4} \bfseries}%二层及以下标题格式设置
-\newcommand{\otherFontSize}{\zihao{5}}%摘要、关键词、参考文献字体格式设置
+\newcommand{\yiCengBiaoTi}{\zihao{3} \heiti}%一层标题格式设置
+\newcommand{\erCengBiaoTi}{\zihao{4} \heiti}%二层及以下标题格式设置
+\newcommand{\otherFontSize}{\zihao{-4} \heiti}%摘要、关键词、参考文献字体格式设置
+
+%页边距设置
+\RequirePackage[a4paper,
+	top=2.5cm,
+	bottom=2.0cm,
+	left=3.0cm,
+	right=2.0cm]{geometry}
+	\addtolength{\oddsidemargin}{0cm}
+	\addtolength{\evensidemargin}{1cm} 
+
+%ctexset设置
+\ctexset{
+	tocdepth=3,%目录深度
+	secnumdepth=3,%section深度, 仅section, subsection, subsubsection可用
+	punct=quanjiao,%全角标点
+	autoindent=2,
+	today=small,
+	contentsname={目\quad 录},
+	listfigurename={图目录},
+	listtablename={表目录},
+	figurename={图},
+	tablename={表},
+	abstractname={摘\quad 要},
+	indexname={索引},
+	appendixname={附录},
+	bibname={参考文献},
+	proofname={证明},
+}
+
+\ctexset{
+	section = {
+		format ={\clearpage\centering\yiCengBiaoTi},
+		afterindent=true,
+		beforeskip={0.8em},
+		afterskip={0.5em},
+	},
+	subsection = {
+		format ={\erCengBiaoTi},
+		afterindent=true,
+		beforeskip={0.5em},
+		afterskip={0.0em},
+	},
+	subsubsection = {
+		format ={\otherFontSize},
+		afterindent=true,
+		beforeskip={0.0em},
+		afterskip={0.0em},
+		indent= {2\ccwd},
+	},
+}
+
+%详细设置参见%https://zhuanlan.zhihu.com/p/401538511
+%\RequirePackage{titlesec}%深度定制标题
 
 %covers封面
 %https://zhuanlan.zhihu.com/p/19734756
 \RequirePackage{eso-pic}%插入封面
-\RequirePackage{setspace}%行距控制
 
 \def\school#1{\gdef\@school{#1}}%定义学院
 \def\@school{\@latex@warning{No \noexpand\school given}}%如果没有提供机构命令，系统将会给出警告信息
@@ -93,55 +151,55 @@
 				{figures/cover.pdf}
 				\vfill}}
 			
-		\put(5.3cm,15.1cm){%
-			\parbox[t][2cm][l]{31em}{\begin{spacing}{2.3}\zihao{4} \hskip 4em \@title\end{spacing}}}
+		\put(8.1cm,13.9cm){\makebox[20em][c]{\large \@title}}
 		
-		\put(9.7cm,11.85cm){\makebox[18em][c]{\zihao{4} \@school}}
+		\put(8.1cm,12.75cm){\makebox[20em][c]{\large \@school}}
 		
-		\put(9.7cm,10.45cm){\makebox[18em][c]{\zihao{4} \@author}}
+		\put(8.1cm,11.65cm){\makebox[20em][c]{\large \@major}}
 		
-		\put(9.7cm,9cm){\makebox[18em][c]{\zihao{4} \@studentID}}
+		\put(8.1cm,10.55cm){\makebox[20em][c]{\large \@studentID}}
 		
-		\put(9.7cm,7.55cm){\makebox[18em][c]{\zihao{4} \@major}}
+		\put(8.1cm,9.45cm){\makebox[20em][c]{\large \@author}}
 		
-		\put(9.7cm,6.15cm){\makebox[18em][c]{\zihao{4} \@teacher}}
+		\put(9.9cm,8.35cm){\makebox[16em][c]{\large \@teacher}}
 		
-		\put(13.55cm,3.2cm){%
-			\makebox[4em][c]{\zihao{4} \number\year}\hskip1em
-			\makebox[3.6em][c]{\zihao{4} \number\month}\hskip1em
-			\makebox[3.6em][c]{\zihao{4} \number\day}}
+		\put(9.1cm,6.15cm){%
+			\makebox[2em][c]{\normalsize \number\year}\hskip1.05em
+			\makebox[2em][c]{\normalsize \number\month}\hskip.55em
+			\makebox[2em][c]{\normalsize \number\day}}
 	}
-	\thispagestyle{empty}~\newpage
+	\thispagestyle{empty}~\clearpage
 }
 
 %封底
 \newcommand{\backcover}{
 	\AtEndDocument{
-		\newpage~\thispagestyle{empty}
-	}}	
+		\label{unknown}\clearpage~\thispagestyle{empty}
+	}}
+
 %毕业论文（设计）独创性声明及使用授权
 \newcommand{\copyrightpage}{%
 	\begin{center}
-		\sffamily \zihao{-2}毕业论文（设计）独创性声明及使用授权
+		\heiti \zihao{3}毕业论文（设计）独创性声明及使用授权
 	\end{center}\vskip 2em
-	{\zihao{4}
+	{
 		
 		本毕业论文（设计）是作者在导师指导下取得的成果。除了文中特别加以标注和致谢的地方外，论文（设计）中不包含其他人已经发表或撰写过的研究成果，不存在剽窃或抄袭行为。与作者一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示了谢意。
 		
-		现就论文（设计）的使用对云南大学授权如下：学校有权保留本论文（设计）（含电子版），也可以采用影印、缩印或其他复制手段保存论文（设计）；学校有权公布论文的全部或部分内容，可以将论文（设计）用于查阅或借阅服务；学校有权向有关机构送交学位论文（设计）用于学术规范审查、社会监督或评奖；学校有权将学位论文（设计）的全部或部分内容录入有关数据库用于检索服务。
+		现就论文（设计）的使用对云南大学授权如下：学校有权保留本论文（设计）（含电子版），也可以采用影印、缩印或其他复制手段保存论文（设计）\,；学校有权公布论文的全部或部分内容，可以将论文（设计）用于查阅或借阅服务；学校有权向有关机构送交学位论文（设计）用于学术规范审查、社会监督或评奖；学校有权将学位论文（设计）的全部或部分内容录入有关数据库用于检索服务。
 		
-		\hskip 1em {\sffamily (内部或保密的论文}（设计）{\sffamily 在解密后应遵循此规定)} 
-		\vskip 6em
+		%\hskip 1em {\heiti (内部或保密的论文}（设计）{\heiti 在解密后应遵循此规定)} 
+		\vskip 3.6cm
 		
-		\noindent 作者姓名：\underline{\makebox[6em][c]{}} 导师姓名：\underline{\makebox[6em][c]{}}日 \hskip 1em 期：\underline{\makebox[6em][c]{}}
+		\noindent 作者姓名：\underline{\makebox[8em][c]{}} 导师姓名：\underline{\makebox[8em][c]{}}日 \hskip 1em 期：\underline{\makebox[8em][c]{}}
 	}
-	\thispagestyle{empty}\newpage}
+	\thispagestyle{empty}}
 
 %maketitle设置
 \def\@maketitle{%
 	\null
 	\begin{center}
-		{\daBiaoTi \@title}
+		{\yiCengBiaoTi \@title}
 		\vskip 1em
 		{\zihao{-3} \@author}
 		\vskip 1em
@@ -164,93 +222,136 @@
 	\global\let\@teacher\@empty
 }%题名完成后，将系统内部和外部不再用到的的题名信息命令废止或清空，也就是说这些命令只能使用一次
 
+\RequirePackage{fancyhdr}%页眉页脚
+\fancypagestyle{Content}{
+	\fancyhf{}
+    \fancyhead[OC]{\zihao{5} \leftmark}
+	\fancyhead[EC]{\zihao{5} \@title}
+    \fancyfoot[C]{\zihao{5} 第\thepage 页（共~\pageref{unknown}~页）}
+	\renewcommand\headrulewidth{0.5pt}
+}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\fancypagestyle{PreContent}{
+	\fancyhf{}
+    \fancyfoot[C]{\thepage}
+	\renewcommand\headrulewidth{0.0pt}
+}
+
 %contents目录设置
 %http://static.latexstudio.net/article/2019/0513/titlesec_c.pdf
 \RequirePackage{titletoc}%深度定制目录
 
-\titlecontents{section}
-[0.2em]{\bfseries \vskip 1em}
-{\contentslabel{1.5em}}{}
-{\titlerule*[2pc]{$~$}\contentspage}
+\titlecontents{section}[0em]{\heiti}
+{\hspace{1.5em}\contentslabel{1.5em}}{}
+{\titlerule*[.8pc]{$\cdot$}\contentspage}
 
-\titlecontents{subsection}
-[2.2em]{}
+\titlecontents{subsection}[3.5em]{}
 {\contentslabel{2em}}{}
 {\titlerule*[.8pc]{$\cdot$}\contentspage}
 
-\titlecontents{subsubsection}
-[5.2em]{}
-{\contentslabel{3em}}{}
-{\titlerule*[.5pc]{$\cdot$}\contentspage}
+\titlecontents{subsubsection}[6em]{}
+{\contentslabel{2.5em}}{}
+{\titlerule*[.8pc]{$\cdot$}\contentspage}
 
-\newcommand{\toc}{\tableofcontents\newpage\pagenumbering{arabic}}
-%ctexset设置
-\ctexset{
-	tocdepth=3,%目录深度
-	secnumdepth=3,%section深度, 仅section, subsection, subsubsection可用
-	punct=quanjiao,%全角标点
-	autoindent=2,
-	today=small,
-	contentsname={目录},
-	listfigurename={图目录},
-	listtablename={表目录},
-	figurename={图},
-	tablename={表},
-	abstractname={摘要},
-	indexname={索引},
-	appendixname={附录},
-	bibname={参考文献},
-	proofname={证明},
-}
-
-\ctexset{
-	section = {	
-		format = \yiCengBiaoTi,
-		afterindent=true,
-	},
-	subsection = {	
-		format = \erCengBiaoTi,
-		afterindent=true,
-	},
-	subsubsection = {	
-		format = \erCengBiaoTi,
-		afterindent=true,
-	},
-}
-
-%详细设置参见%https://zhuanlan.zhihu.com/p/401538511
-%\RequirePackage{titlesec}%深度定制标题
+\newcommand{\toc}{%
+	\addcontentsline{toc}{section}{\contentsname}
+	\markboth{\contentsname}{}
+	\tableofcontents
+	\clearpage\pagestyle{Content}\pagenumbering{arabic}
+	}
 
 %中英abstract, keywords设置
-\renewenvironment{abstract}[1]{\newpage\begin{center}\section*{\abstractname}\end{center} \addcontentsline{toc}{section}{\abstractname} \par \otherFontSize #1}{\par\pagenumbering{Roman}}
+\renewenvironment{abstract}[1]{%
+	\section*{\abstractname}
+	\markboth{\abstractname}{}
+	\addcontentsline{toc}{section}{\abstractname} #1}
+	{\thispagestyle{PreContent}\pagenumbering{Roman}}
 
-\newcommand{\keywords}[1]{\vskip 1em\noindent {\otherFontSize \textbf{关键词：} #1}\par}
+\newcommand{\keywords}[1]{%
+	{\textbf{\heiti 关键词：} #1}\clearpage}
 
 \newcommand{\enabstractname}{Abstract}
-\newenvironment{enabstract}[1]{\newpage\begin{center}\section*{\enabstractname}\end{center} \addcontentsline{toc}{section}{\enabstractname} \par \otherFontSize #1}{\par}
+\newenvironment{enabstract}[1]{%
+	\section*{\bfseries \enabstractname}
+	\markboth{\enabstractname}{}
+	\addcontentsline{toc}{section}{\enabstractname} #1}
+	{\thispagestyle{PreContent}}
 
-\newcommand{\enkeywords}[1]{\vskip 1em\noindent {\otherFontSize \textbf{Key words：} #1}\newpage\pagenumbering{arabic}}
+\newcommand{\enkeywords}[1]{%
+	{\textbf{Key words:} #1}\clearpage}
 
 %acknowledgement致谢设置
-\newcommand{\acknowledgementname}{致谢}
-\newenvironment{acknowledgement}[1]{\newpage\begin{center}\section*{\acknowledgementname}\end{center} \addcontentsline{toc}{section}{\acknowledgementname} \par #1}{\newpage}
-
-%references参考文献设置
-\newcommand{\reference}[1]{\newpage\centering \bibliography{#1} \addcontentsline{toc}{section}{\refname}\newpage}
+\newcommand{\acknowledgementname}{致\quad 谢}
+\newenvironment{acknowledgement}[1]{%
+	\section*{\acknowledgementname}
+	\markboth{\acknowledgementname}{}
+	\addcontentsline{toc}{section}{\acknowledgementname} #1}
+	{}
 
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
 %\RequirePackage{gbt7714}
 \bibliographystyle{references/gbt7714-numerical.bst}%gbt7714-author-year,gbt7714-numerical
-\renewcommand{\bibfont}{\otherFontSize}
+\renewcommand{\bibfont}{\normalsize}
+
+% \renewcommand\appendix{\par
+%   \setcounter{section}{0}%
+%   \setcounter{subsection}{0}%
+%   \gdef\thesection{\appendixname~\@Alph\c@section}
+%   }
+
+\newcommand{\appendixsection}[1]{%
+	\section{#1}
+	\markboth{\appendixname~\Alph{section}\quad#1}{}
+	}
+
+%表格字号为五号,https://www.zhihu.com/question/366803177
+\RequirePackage{xpatch}
+\xpatchcmd\@floatboxreset
+  {\normalsize}
+  {\expandafter\ifstrequal\expandafter{\@captype}{table}
+      % if inside "table" env
+      {\small}
+      % otherwise
+      {\normalsize}}
+  {}{\fail}
+
+\RequirePackage{etoolbox}%对浮动体无效
+\AtBeginEnvironment{tabular}{\small}
+\AtBeginEnvironment{longtable}{\small}
+
+%脚注为带圈数字
+%https://zhuanlan.zhihu.com/p/74515148
+%https://blog.csdn.net/programchangesworld/article/details/51810520
+\RequirePackage{pifont}
+\RequirePackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{172}}{\ding{173}}{\ding{174}}{\ding{175}}{\ding{176}}{\ding{177}}{\ding{178}}{\ding{179}}{\ding{180}}{\ding{181}}}
+%\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
+%图表的序号和标题间空一格,标题为黑体
+\RequirePackage[tableposition=bottom,figureposition=top,labelsep=quad]{caption}%图表标题
+\RequirePackage{subcaption}%子图表标题
+\DeclareCaptionFont{heiti}{\heiti\normalsize}
+\captionsetup{labelfont=heiti,textfont=heiti}
+\captionsetup[figure]{labelformat=simple}
+\captionsetup[subfigure]{labelformat=parens}
+\captionsetup[table]{labelformat=simple}
+\captionsetup[subtable]{labelformat=parens}
+
+%列表环境间隔
+%https://blog.csdn.net/fandroid/article/details/54644966
+\RequirePackage{enumitem}
+\setenumerate[1]{itemsep=-3pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+\setitemize[1]{itemsep=-3pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+\setdescription{itemsep=-3pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+
 
 %其他设置
 \date{\today}
 \RequirePackage{xcolor}%颜色
 \RequirePackage{graphicx}%插入图片
 \graphicspath{{figures/}}
-
-\RequirePackage{caption}%图表标题
-\RequirePackage{subcaption}%子图表标题
 
 \def\equationautorefname~#1\null{式\,(#1)\,\null}
 \def\figureautorefname~#1\null{图\,#1\,\null}

@@ -5,21 +5,16 @@
 \usepackage{myPackages}
 
 \title{云南大学本科学生毕业论文(设计)\;\LaTeX 模板}
-\school{XX学院}
-\author{XXX}
+\school{物理与天文学院}
+\author{李XX}
 \studentID{20181050000}
-\major{XX学}
-\teacher{XXX}
+\major{天文学}
+\teacher{陈XX（副教授）}
 
 \begin{document}
-	
 	\cover
 	
 	\copyrightpage
-	
-	\maketitle
-
-	\toc
 
 	\begin{abstract}
 		中文摘要
@@ -33,7 +28,10 @@
 
 	\enkeywords{enKeyWords1；enKeyWords2；enKeyWords3}
 		
+	\toc
+
 	\section{基本使用说明}
+
 		声明：\href{https://gitee.com/Astro-Lee/YNU-thesis-bachelor}{云南大学本科毕业论文(设计) LaTeX 模板}根据\href{http://www.jwc.ynu.edu.cn/info/1003/2052.htm}{《云南大学本科学生毕业论文(设计)工作要求及规范》}编写，个人能力、精力有限，不保证完全符合规范!此外，该模板未经学校官方核准，如有顾虑，请不要使用！
 		
 		对于第一次使用\LaTeX 的同学推荐先阅读\href{http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf}{一份（不太）简短的 \LaTeXe 介绍}。
@@ -522,17 +520,21 @@
 	
 	\section{PDF转Word}
 	可使用 \href{https://www.adobe.com/acrobat/online/pdf-to-word.html}{Adobe PDF to Word} 转换 \verb|*.pdf| 文件。第二次转换文件时需要登录 Adobe 账号才能下载，建议在浏览器的“无痕浏览”、“隐私模式”等模式下访问以跳过强制登录。
-	
+
+	\bibliography{references/references.bib}%参考文献，引入文献的bibtex格式信息，填bib文件
+
 	\begin{acknowledgement}
 		致谢。
 	\end{acknowledgement}
-
-	\reference{references/references.bib}%参考文献，引入文献的bibtex格式信息，填bib文件
 	
 	\appendix
-	\section{附录}
+	\appendixsection{附录的标题}
 		\subsection{\LaTeX~Source Code}
 			%\lstinputlisting[language=latex,caption={\LaTeX~Source Code}]{main.tex}
+			勾股定理
+			\begin{align}
+				a^2+b^2=c^2
+			\end{align}
 		\subsection{Some Examples 2}
 			some text...
 
