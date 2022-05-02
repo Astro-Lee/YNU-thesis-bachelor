@@ -116,7 +116,7 @@
 	subsubsection = {
 		format ={\otherFontSize},
 		afterindent=true,
-		beforeskip={0.0em},
+		beforeskip={0.5em},
 		afterskip={0.0em},
 		indent= {2\ccwd},
 	},
