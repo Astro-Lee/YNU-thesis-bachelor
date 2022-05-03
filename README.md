@@ -47,4 +47,4 @@
 - 清除编译过程中产生的辅助文件：`latexmk -c`
 
 ## PDF转Word
- 可使用 [Adobe PDF to Word](https://www.adobe.com/acrobat/online/pdf-to-word.html) 转换 `*.pdf` 文件。第二次转换文件时需要登录 Adobe 账号才能下载，建议在浏览器的“无痕浏览”、“隐私模式”等模式下访问以跳过强制登录。
+ 可使用 [Adobe PDF to Word](https://www.adobe.com/acrobat/online/pdf-to-word.html) 转换 `*.pdf` 文件。第二次转换文件时需要登录 Adobe 账号才能下载，建议在浏览器的“无痕浏览”、“隐私模式”等模式下访问以跳过强制登录(via. [hnuthesis](https://github.com/yusanshi/hnuthesis))。

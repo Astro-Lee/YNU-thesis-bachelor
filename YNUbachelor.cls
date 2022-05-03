@@ -193,7 +193,7 @@
 		
 		\noindent 作者姓名：\underline{\makebox[8em][c]{}} 导师姓名：\underline{\makebox[8em][c]{}}日 \hskip 1em 期：\underline{\makebox[8em][c]{}}
 	}
-	\thispagestyle{empty}}
+	\thispagestyle{empty}\clearpage}
 
 %maketitle设置
 \def\@maketitle{%
@@ -257,9 +257,9 @@
 {\titlerule*[.8pc]{$\cdot$}\contentspage}
 
 \newcommand{\toc}{%
-	\addcontentsline{toc}{section}{\contentsname}
 	\markboth{\contentsname}{}
 	\tableofcontents
+	\addcontentsline{toc}{section}{\contentsname}
 	\clearpage\pagestyle{Content}\pagenumbering{arabic}
 	}
 
