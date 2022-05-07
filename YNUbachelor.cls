@@ -128,6 +128,7 @@
 %covers封面
 %https://zhuanlan.zhihu.com/p/19734756
 \RequirePackage{eso-pic}%插入封面
+\RequirePackage{setspace}%行距控制
 
 \def\school#1{\gdef\@school{#1}}%定义学院
 \def\@school{\@latex@warning{No \noexpand\school given}}%如果没有提供机构命令，系统将会给出警告信息
@@ -141,40 +142,50 @@
 \def\teacher#1{\gdef\@teacher{#1}}%定义指导教师
 \def\@teacher{\@latex@warning{No \noexpand\teacher given}}%如果没有提供机构命令，系统将会给出警告信息
 
-\newcommand{\cover}{%
+\newcommand{\frontcover}{%
 	\AddToShipoutPicture*{%
 		\put(0,0){%
 			\parbox[b][\paperheight]{\paperwidth}{%
 				\vfill
 				\centering
 				\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]%
-				{figures/cover.pdf}
+				{figures/frontcover.pdf}
 				\vfill}}
 			
-		\put(8.1cm,13.9cm){\makebox[20em][c]{\large \@title}}
+		\put(5.7cm,14.9cm){
+			\parbox[t][0cm][l]{26em}{\begin{spacing}{2.15}\large \@title\end{spacing}}}
 		
-		\put(8.1cm,12.75cm){\makebox[20em][c]{\large \@school}}
+		\put(7.7cm,11.7cm){\makebox[18em][c]{\large \@school}}
 		
-		\put(8.1cm,11.65cm){\makebox[20em][c]{\large \@major}}
+		\put(7.7cm,10.3cm){\makebox[18em][c]{\large \@major}}
 		
-		\put(8.1cm,10.55cm){\makebox[20em][c]{\large \@studentID}}
+		\put(7.7cm,8.85cm){\makebox[18em][c]{\large \@author}}
 		
-		\put(8.1cm,9.45cm){\makebox[20em][c]{\large \@author}}
+		\put(7.7cm,7.38cm){\makebox[18em][c]{\large \@studentID}}
 		
-		\put(9.9cm,8.35cm){\makebox[16em][c]{\large \@teacher}}
+		\put(9.05cm,5.99cm){\makebox[15em][c]{\large \@teacher}}
 		
-		\put(9.1cm,6.15cm){%
-			\makebox[2em][c]{\normalsize \number\year}\hskip1.05em
-			\makebox[2em][c]{\normalsize \number\month}\hskip.55em
-			\makebox[2em][c]{\normalsize \number\day}}
+		\put(8.2cm,4.105cm){%
+			\makebox[2em][c]{\large \number\year}\hskip2em
+			\makebox[3.6em][c]{\large \number\month}\hskip1em
+			\makebox[3.6em][c]{\large \number\day}}
 	}
 	\thispagestyle{empty}~\clearpage
 }
 
 %封底
 \newcommand{\backcover}{
-	\AtEndDocument{
+	\AtEndDocument{%
 		\clearpage~\thispagestyle{empty}
+		\AddToShipoutPicture*{%
+		\put(0,0){%
+			\parbox[b][\paperheight]{\paperwidth}{%
+				\vfill
+				\centering
+				\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]%
+				{figures/backcover.pdf}
+				\vfill}}
+		}
 	}}
 
 %毕业论文（设计）独创性声明及使用授权
