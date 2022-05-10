@@ -102,19 +102,19 @@
 
 \ctexset{
 	section = {
-		format ={\clearpage\centering\yiCengBiaoTi},
+		format ={\clearpage\phantomsection\centering\yiCengBiaoTi},
 		afterindent=true,
 		beforeskip={0.8em},
 		afterskip={0.5em},
 	},
 	subsection = {
-		format ={\erCengBiaoTi},
+		format ={\phantomsection\erCengBiaoTi},
 		afterindent=true,
 		beforeskip={0.5em},
 		afterskip={0.0em},
 	},
 	subsubsection = {
-		format ={\otherFontSize},
+		format ={\phantomsection\otherFontSize},
 		afterindent=true,
 		beforeskip={0.5em},
 		afterskip={0.0em},
@@ -269,8 +269,8 @@
 
 \newcommand{\toc}{%
 	\markboth{\contentsname}{}
+	\phantomsection\addcontentsline{toc}{section}{\contentsname}
 	\tableofcontents
-	\addcontentsline{toc}{section}{\contentsname}
 	\clearpage\pagestyle{Content}\pagenumbering{arabic}
 	}
 
@@ -278,7 +278,7 @@
 \renewenvironment{abstract}[1]{%
 	\section*{\abstractname}
 	\markboth{\abstractname}{}
-	\addcontentsline{toc}{section}{\abstractname} #1}
+	\phantomsection\addcontentsline{toc}{section}{\abstractname} #1}
 	{\thispagestyle{PreContent}\pagenumbering{Roman}}
 
 \newcommand{\keywords}[1]{%
@@ -288,7 +288,7 @@
 \newenvironment{enabstract}[1]{%
 	\section*{\bfseries \enabstractname}
 	\markboth{\enabstractname}{}
-	\addcontentsline{toc}{section}{\enabstractname} #1}
+	\phantomsection\addcontentsline{toc}{section}{\enabstractname} #1}
 	{\thispagestyle{PreContent}}
 
 \newcommand{\enkeywords}[1]{%
@@ -299,7 +299,7 @@
 \newenvironment{acknowledgement}[1]{%
 	\section*{\acknowledgementname}
 	\markboth{\acknowledgementname}{}
-	\addcontentsline{toc}{section}{\acknowledgementname} #1}
+	\phantomsection\addcontentsline{toc}{section}{\acknowledgementname} #1}
 	{}
 
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
