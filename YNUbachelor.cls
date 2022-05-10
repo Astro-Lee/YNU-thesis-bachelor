@@ -88,12 +88,12 @@
 	punct=quanjiao,%全角标点
 	autoindent=2,
 	today=small,
-	contentsname={目\quad 录},
+	contentsname={目\texorpdfstring{\quad}{}录},
 	listfigurename={图目录},
 	listtablename={表目录},
 	figurename={图},
 	tablename={表},
-	abstractname={摘\quad 要},
+	abstractname={摘\texorpdfstring{\quad}{}要},
 	indexname={索引},
 	appendixname={附录},
 	bibname={参考文献},
@@ -251,6 +251,8 @@
 	\renewcommand\headrulewidth{0.0pt}
 }
 
+\setlength{\headheight}{12.64723pt}%页眉高度
+
 %contents目录设置
 %http://static.latexstudio.net/article/2019/0513/titlesec_c.pdf
 \RequirePackage{titletoc}%深度定制目录
@@ -295,7 +297,7 @@
 	{\textbf{Key words:} #1}\clearpage}
 
 %acknowledgement致谢设置
-\newcommand{\acknowledgementname}{致\quad 谢}
+\newcommand{\acknowledgementname}{致\texorpdfstring{\quad}{}谢}
 \newenvironment{acknowledgement}[1]{%
 	\section*{\acknowledgementname}
 	\markboth{\acknowledgementname}{}
