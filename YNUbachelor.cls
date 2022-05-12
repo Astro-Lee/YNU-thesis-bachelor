@@ -153,7 +153,7 @@
 				\vfill}}
 			
 		\put(5.7cm,14.9cm){
-			\parbox[t][0cm][l]{26em}{\begin{spacing}{2.15}\large \@title\end{spacing}}}
+			\parbox[t][0cm][l]{26em}{\begin{spacing}{2.15}\centering\large \@title\end{spacing}}}
 		
 		\put(7.7cm,11.7cm){\makebox[18em][c]{\large \@school}}
 		
@@ -194,7 +194,7 @@
 		\heiti \zihao{3}毕业论文（设计）独创性声明及使用授权
 	\end{center}\vskip 2em
 	{
-		
+
 		本毕业论文（设计）是作者在导师指导下取得的成果。除了文中特别加以标注和致谢的地方外，论文（设计）中不包含其他人已经发表或撰写过的研究成果，不存在剽窃或抄袭行为。与作者一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示了谢意。
 		
 		现就论文（设计）的使用对云南大学授权如下：学校有权保留本论文（设计）（含电子版），也可以采用影印、缩印或其他复制手段保存论文（设计）\,；学校有权公布论文的全部或部分内容，可以将论文（设计）用于查阅或借阅服务；学校有权向有关机构送交学位论文（设计）用于学术规范审查、社会监督或评奖；学校有权将学位论文（设计）的全部或部分内容录入有关数据库用于检索服务。
@@ -204,7 +204,7 @@
 		
 		\noindent 作者姓名：\underline{\makebox[8em][c]{}} 导师姓名：\underline{\makebox[8em][c]{}}日 \hskip 1em 期：\underline{\makebox[8em][c]{}}
 	}
-	\thispagestyle{empty}\clearpage}
+	\thispagestyle{empty}}
 
 %maketitle设置
 \def\@maketitle{%
@@ -236,6 +236,12 @@
 %页眉页脚
 \RequirePackage{lastpage}
 \RequirePackage{fancyhdr}
+\fancypagestyle{PreContent}{
+	\fancyhf{}
+    \fancyfoot[C]{\thepage}
+	\renewcommand\headrulewidth{0.0pt}
+}
+
 \fancypagestyle{Content}{
 	\fancyhf{}
     \fancyhead[OC]{\zihao{5} \leftmark}
@@ -244,14 +250,31 @@
 	\renewcommand\headrulewidth{0.5pt}
 }
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-
-\fancypagestyle{PreContent}{
-	\fancyhf{}
-    \fancyfoot[C]{\thepage}
-	\renewcommand\headrulewidth{0.0pt}
-}
-
 \setlength{\headheight}{12.64723pt}%页眉高度
+
+%中英abstract, keywords设置
+\renewenvironment{abstract}[1]{%
+	\section*{\abstractname
+		\phantomsection\addcontentsline{toc}{section}{\abstractname}
+		\markboth{\abstractname}{}
+		}
+	#1}
+	{\thispagestyle{PreContent}\pagenumbering{Roman}}
+
+\newcommand{\keywords}[1]{%
+	{\textbf{\heiti 关键词：} #1}}
+
+\newcommand{\enabstractname}{Abstract}
+\newenvironment{enabstract}[1]{%
+	\section*{\bfseries \enabstractname
+		\phantomsection\addcontentsline{toc}{section}{\enabstractname}
+		\markboth{\enabstractname}{}
+		}
+	#1}
+	{\thispagestyle{PreContent}}
+
+\newcommand{\enkeywords}[1]{%
+	{\textbf{Key words:} #1}}
 
 %contents目录设置
 %http://static.latexstudio.net/article/2019/0513/titlesec_c.pdf
@@ -269,39 +292,23 @@
 {\contentslabel{2.5em}}{}
 {\titlerule*[.8pc]{$\cdot$}\contentspage}
 
-\newcommand{\toc}{%
-	\markboth{\contentsname}{}
-	\phantomsection\addcontentsline{toc}{section}{\contentsname}
-	\tableofcontents
-	\clearpage\pagestyle{Content}\pagenumbering{arabic}
-	}
-
-%中英abstract, keywords设置
-\renewenvironment{abstract}[1]{%
-	\section*{\abstractname}
-	\markboth{\abstractname}{}
-	\phantomsection\addcontentsline{toc}{section}{\abstractname} #1}
-	{\thispagestyle{PreContent}\pagenumbering{Roman}}
-
-\newcommand{\keywords}[1]{%
-	{\textbf{\heiti 关键词：} #1}\clearpage}
-
-\newcommand{\enabstractname}{Abstract}
-\newenvironment{enabstract}[1]{%
-	\section*{\bfseries \enabstractname}
-	\markboth{\enabstractname}{}
-	\phantomsection\addcontentsline{toc}{section}{\enabstractname} #1}
-	{\thispagestyle{PreContent}}
-
-\newcommand{\enkeywords}[1]{%
-	{\textbf{Key words:} #1}\clearpage}
+\renewcommand\tableofcontents{%
+    \section*{\contentsname%
+		\phantomsection\addcontentsline{toc}{section}{\contentsname}%
+		\markboth{\contentsname}{}%
+	}%
+    \@starttoc{toc}%
+	\clearpage\pagestyle{Content}\pagenumbering{arabic}%
+}
 
 %acknowledgement致谢设置
 \newcommand{\acknowledgementname}{致\texorpdfstring{\quad}{}谢}
 \newenvironment{acknowledgement}[1]{%
-	\section*{\acknowledgementname}
+	\section*{\acknowledgementname
+	\phantomsection\addcontentsline{toc}{section}{\acknowledgementname}
 	\markboth{\acknowledgementname}{}
-	\phantomsection\addcontentsline{toc}{section}{\acknowledgementname} #1}
+	}
+	#1}
 	{}
 
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
