@@ -342,6 +342,8 @@
   \renewcommand\thesubsection{\Alph{section}.\arabic{subsection}}
   \renewcommand\thesubsubsection{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}
   \renewcommand{\theequation}{\Alph{section}.\arabic{equation}}
+  \renewcommand{\thefigure}{\Alph{section}.\arabic{figure}}
+  \renewcommand{\thetable}{\Alph{section}.\arabic{table}}
   }
 
 %表格字号为五号,https://www.zhihu.com/question/366803177
