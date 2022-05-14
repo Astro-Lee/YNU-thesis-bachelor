@@ -311,10 +311,24 @@
 	#1}
 	{}
 
+%参考文献
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
 %\RequirePackage{gbt7714}
 \bibliographystyle{references/gbt7714-numerical.bst}%gbt7714-author-year,gbt7714-numerical
+
+%natbib.sty
+\renewcommand\bibsection{%
+    \section*{\refname
+	\phantomsection\addcontentsline{toc}{section}{\refname}%
+	\markboth{\refname}{}%
+    }%
+}
+
+%https://github.com/ustctug/ustcthesis/blob/f7db43e2b87bf5f61babdd3a500ecbc69a803b3e/ustcthesis.cls#L3031
 \renewcommand{\bibfont}{\normalsize}
+\setlength{\bibsep}{0\p@ \@plus.2\p@}
+\renewcommand\@biblabel[1]{[#1]\hfill}
+\setlength{\bibhang}{2\ccwd}
 
 %附录设置
 % \renewcommand\appendix{\par
