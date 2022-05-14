@@ -279,6 +279,7 @@
 %contents目录设置
 %http://static.latexstudio.net/article/2019/0513/titlesec_c.pdf
 \RequirePackage{titletoc}%深度定制目录
+\RequirePackage{afterpage}%用于目录后切换页眉页脚，https://gitee.com/MkSwQi/usstthesis/blob/master/usstthesis.cls#L347
 
 \titlecontents{section}[0em]{\heiti}
 {\hspace{1.5em}\contentslabel{1.5em}}{}
@@ -298,7 +299,9 @@
 		\markboth{\contentsname}{}%
 	}%
     \@starttoc{toc}%
-	\clearpage\pagestyle{Content}\pagenumbering{arabic}%
+    \thispagestyle{PreContent}%
+	\afterpage{\pagenumbering{arabic}}%
+	\pagestyle{Content}%
 }
 
 %acknowledgement致谢设置
@@ -318,7 +321,7 @@
 
 %natbib.sty
 \renewcommand\bibsection{%
-    \section*{\refname
+    \section*{\refname%
 	\phantomsection\addcontentsline{toc}{section}{\refname}%
 	\markboth{\refname}{}%
     }%
@@ -464,8 +467,6 @@
 
 %hyperref超链接设置
 \AtEndOfPackage{
-	\RequirePackage[utf8]{inputenc}
-
 	\RequirePackage{hyperref}
 	\hypersetup{
 		breaklinks=true,
