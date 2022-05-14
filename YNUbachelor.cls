@@ -250,6 +250,7 @@
 	\renewcommand\headrulewidth{0.5pt}
 }
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+% \renewcommand{\sectionmark}[1]{\markboth{\CTEXifname{\CTEXthesection\quad}{}#1}{}}
 \setlength{\headheight}{12.64723pt}%页眉高度
 
 %中英abstract, keywords设置
@@ -281,16 +282,16 @@
 \RequirePackage{titletoc}%深度定制目录
 \RequirePackage{afterpage}%用于目录后切换页眉页脚，https://gitee.com/MkSwQi/usstthesis/blob/master/usstthesis.cls#L347
 
-\titlecontents{section}[0em]{\heiti}
-{\hspace{1.5em}\contentslabel{1.5em}}{}
+\titlecontents{section}[\z@]{\heiti}
+{\contentspush{\thecontentslabel\unskip\hspace{\ccwd}}}{}
 {\titlerule*[.8pc]{$\cdot$}\contentspage}
 
-\titlecontents{subsection}[3.5em]{}
-{\contentslabel{2em}}{}
+\titlecontents{subsection}[2\ccwd]{}
+{\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
 {\titlerule*[.8pc]{$\cdot$}\contentspage}
 
-\titlecontents{subsubsection}[6em]{}
-{\contentslabel{2.5em}}{}
+\titlecontents{subsubsection}[4\ccwd]{}
+{\contentspush{\thecontentslabel\hspace{\ccwd}}}{}
 {\titlerule*[.8pc]{$\cdot$}\contentspage}
 
 \renewcommand\tableofcontents{%
@@ -334,16 +335,14 @@
 \setlength{\bibhang}{2\ccwd}
 
 %附录设置
-% \renewcommand\appendix{\par
-%   \setcounter{section}{0}%
-%   \setcounter{subsection}{0}%
-%   \gdef\thesection{\appendixname~\@Alph\c@section}
-%   }
-
-\newcommand{\appendixsection}[1]{%
-	\section{#1}
-	\markboth{\appendixname~\Alph{section}\quad#1}{}
-	}
+\renewcommand\appendix{\par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \renewcommand\thesection{\appendixname~\Alph{section}}
+  \renewcommand\thesubsection{\Alph{section}.\arabic{subsection}}
+  \renewcommand\thesubsubsection{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}
+  \renewcommand{\theequation}{\Alph{section}.\arabic{equation}}
+  }
 
 %表格字号为五号,https://www.zhihu.com/question/366803177
 \RequirePackage{xpatch}
@@ -398,6 +397,7 @@
 \RequirePackage{xcolor}%颜色
 \RequirePackage{graphicx}%插入图片
 \graphicspath{{figures/}}
+\RequirePackage{zhlipsum}
 
 \def\equationautorefname~#1\null{式\,(#1)\,\null}
 \def\figureautorefname~#1\null{图\,#1\,\null}
