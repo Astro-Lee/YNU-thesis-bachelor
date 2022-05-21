@@ -20,7 +20,8 @@
 \RequirePackage{xeCJK}
 
 %简体中文 宋体
-\setCJKmainfont{SimSun.ttf}[Path=fonts/]%Mapping=full-stop or fullwidth-stop
+\setCJKmainfont{SimSun.ttf}[Path=fonts/]
+%\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
 
 %简体中文 黑体
 \setCJKsansfont{SimHei.ttf}[Path=fonts/]
@@ -106,12 +107,14 @@
 		afterindent=true,
 		beforeskip={0.8em},
 		afterskip={0.5em},
+		fixskip = {false},
 	},
 	subsection = {
 		format ={\phantomsection\erCengBiaoTi},
 		afterindent=true,
 		beforeskip={0.5em},
 		afterskip={0.0em},
+		fixskip = {false},
 	},
 	subsubsection = {
 		format ={\phantomsection\otherFontSize},
@@ -119,6 +122,7 @@
 		beforeskip={0.5em},
 		afterskip={0.0em},
 		indent= {2\ccwd},
+		fixskip = {false},
 	},
 }
 
@@ -256,7 +260,7 @@
 %中英abstract, keywords设置
 \renewenvironment{abstract}[1]{%
 	\section*{\abstractname
-		\phantomsection\addcontentsline{toc}{section}{\abstractname}
+		\addcontentsline{toc}{section}{\abstractname}
 		\markboth{\abstractname}{}
 		}
 	#1}
@@ -268,7 +272,7 @@
 \newcommand{\enabstractname}{Abstract}
 \newenvironment{enabstract}[1]{%
 	\section*{\bfseries \enabstractname
-		\phantomsection\addcontentsline{toc}{section}{\enabstractname}
+		\addcontentsline{toc}{section}{\enabstractname}
 		\markboth{\enabstractname}{}
 		}
 	#1}
@@ -296,7 +300,7 @@
 
 \renewcommand\tableofcontents{%
     \section*{\contentsname%
-		\phantomsection\addcontentsline{toc}{section}{\contentsname}%
+		\addcontentsline{toc}{section}{\contentsname}%
 		\markboth{\contentsname}{}%
 	}%
     \@starttoc{toc}%
@@ -309,7 +313,7 @@
 \newcommand{\acknowledgementname}{致\texorpdfstring{\quad}{}谢}
 \newenvironment{acknowledgement}[1]{%
 	\section*{\acknowledgementname
-	\phantomsection\addcontentsline{toc}{section}{\acknowledgementname}
+	\addcontentsline{toc}{section}{\acknowledgementname}
 	\markboth{\acknowledgementname}{}
 	}
 	#1}
@@ -323,7 +327,7 @@
 %natbib.sty
 \renewcommand\bibsection{%
     \section*{\refname%
-	\phantomsection\addcontentsline{toc}{section}{\refname}%
+	\addcontentsline{toc}{section}{\refname}%
 	\markboth{\refname}{}%
     }%
 }
@@ -371,14 +375,26 @@
 \captionsetup[table]{labelformat=simple}
 \captionsetup[subtable]{labelformat=parens}
 
-%脚注为带圈数字
+%脚注为带圈数字https://github.com/CasperVector/pkuthss/blob/b80742e3c67bc5837dbb6c057a42b834315e9ced/tex/pkuthss.cls#L132
+\RequirePackage{tikz}
+\newcommand*{\@circled}[1]{%
+	\scalebox{0.5}{%
+		\tikz[thick, baseline = (char.base)]{%
+		\node[shape = circle, draw = black, minimum size = 1.25em, inner sep = 0pt ] (char) {\bfseries #1};
+	}}%
+}
 
-%https://blog.csdn.net/programchangesworld/article/details/51810520
-\RequirePackage{pifont}
-\RequirePackage[perpage,symbol*]{footmisc}
-\DefineFNsymbols{circled}{{\ding{172}}{\ding{173}}{\ding{174}}{\ding{175}}{\ding{176}}{\ding{177}}{\ding{178}}{\ding{179}}{\ding{180}}{\ding{181}}}
-%\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
-\setfnsymbol{circled}
+% Use circled numbers as footnote symbols. Does not affect title page, but
+% footnote is rarely used in dissertation covers ;)
+\renewcommand*{\thefootnote}{%
+	$^{\protect\@circled{\arabic{footnote}}}$%
+	}
+
+% Provides utility to modify footnote spacing.
+% Option used to make sure it does not render interleaf pages totally blank.
+\RequirePackage[cleardoublepage = current]{scrextend}
+% Set up footnote spacing: whole paragraph indent 2em, 0.1em after mark.
+\deffootnote{2em}{0pt}{\thefootnotemark\hspace{0.1em}}
 
 %https://zhuanlan.zhihu.com/p/74515148
 % shorten footnote rule
@@ -468,7 +484,7 @@
 {}
 
 %hyperref超链接设置
-\AtEndOfPackage{
+\AtEndOfClass{
 	\RequirePackage{hyperref}
 	\hypersetup{
 		breaklinks=true,
