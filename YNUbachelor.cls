@@ -55,6 +55,10 @@
 	Scale = MatchLowercase,
 ]
 
+\RequirePackage{amsmath,amsfonts,amssymb,siunitx}%数学公式扩展，花体，扩展符号的基础字体支持，扩展符号定义成命令，物理量的单位
+\RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
+\setmathfont{XITS Math}
+
 %标题以外,正文文字行距为固定值22pt
 %https://github.com/ustctug/ustcthesis/blob/df62a2627f42556ab421700577e3b90af3947189/ustcthesis.cls#L647
 \renewcommand\normalsize{%
