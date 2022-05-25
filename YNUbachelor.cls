@@ -15,6 +15,19 @@
 \ClassError{YNUbachelor}{必须使用 `xelatex' 编译器进行编译\MessageBreak Please choose `xelatex'}{Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 
+%标题以外,正文文字行距为固定值22pt
+%https://github.com/ustctug/ustcthesis/blob/df62a2627f42556ab421700577e3b90af3947189/ustcthesis.cls#L647
+\renewcommand\normalsize{%
+      \@setfontsize\normalsize{12bp}{22bp}%
+      \abovedisplayskip 12bp \@plus3bp \@minus7bp%
+      \abovedisplayshortskip \z@ \@plus3bp%
+      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
+      \belowdisplayskip \abovedisplayskip
+      \let\@listi\@listI}%
+
+\linespread{1}\selectfont
+\normalsize
+
 %\RequirePackage{ifplatform}
 %字体下载 https://gitee.com/Astro-Lee/fonts
 \RequirePackage{xeCJK}
@@ -58,19 +71,6 @@
 \RequirePackage{amsmath,amsfonts,amssymb,siunitx}%数学公式扩展，花体，扩展符号的基础字体支持，扩展符号定义成命令，物理量的单位
 \RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{XITS Math}
-
-%标题以外,正文文字行距为固定值22pt
-%https://github.com/ustctug/ustcthesis/blob/df62a2627f42556ab421700577e3b90af3947189/ustcthesis.cls#L647
-\renewcommand\normalsize{%
-      \@setfontsize\normalsize{12bp}{22bp}%
-      \abovedisplayskip 12bp \@plus3bp \@minus7bp%
-      \abovedisplayshortskip \z@ \@plus3bp%
-      \belowdisplayshortskip 6.5bp \@plus3.5bp \@minus3bp%
-      \belowdisplayskip \abovedisplayskip
-      \let\@listi\@listI}%
-
-\linespread{1}\selectfont
-\normalsize
 
 %字体格式设置
 \newcommand{\yiCengBiaoTi}{\zihao{3} \heiti}%一层标题格式设置
@@ -498,6 +498,12 @@
 		bookmarksnumbered=true,
 		pdfstartview=FitH,
 		pdftitle={云南大学本科毕业论文(设计)},
+		pdfauthor = \@author,
 		pdfcreator={YNU-thesis-bachelor \thesisversion},
+	}
+
+	% \pkg{hyperref} 与 \pkg{unicode-math} 存在一些兼容性问题, https://github.com/ustctug/ustcthesis/blob/bb27361648d850831d3899f308f7e2a83b9a6914/ustcthesis.cls#L3163
+	\@ifpackagelater{hyperref}{2019/04/27}{}{%
+		\g@addto@macro\psdmapshortnames{\let\mu\textmu}%
 	}
 }
