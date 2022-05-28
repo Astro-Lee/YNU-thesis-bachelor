@@ -69,8 +69,8 @@
 ]
 
 \RequirePackage{amsmath,amsfonts,amssymb,siunitx}%数学公式扩展，花体，扩展符号的基础字体支持，扩展符号定义成命令，物理量的单位
-\RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
-\setmathfont{XITS Math}
+%\RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
+%\setmathfont{XITS Math}
 
 %字体格式设置
 \newcommand{\yiCengBiaoTi}{\zihao{3} \heiti}%一层标题格式设置
@@ -178,7 +178,7 @@
 			\makebox[3.6em][c]{\large \number\month}\hskip1em
 			\makebox[3.6em][c]{\large \number\day}}
 	}
-	\thispagestyle{empty}~\clearpage
+	\pagestyle{empty}~\clearpage
 }
 
 %封底
@@ -212,7 +212,7 @@
 		
 		\noindent 作者姓名：\underline{\makebox[8em][c]{}} 导师姓名：\underline{\makebox[8em][c]{}}日 \hskip 1em 期：\underline{\makebox[8em][c]{}}
 	}
-	\thispagestyle{empty}}
+	\pagestyle{empty}\clearpage}
 
 %maketitle设置
 \def\@maketitle{%
@@ -271,7 +271,7 @@
 	{\thispagestyle{PreContent}\pagenumbering{Roman}}
 
 \newcommand{\keywords}[1]{%
-	{\textbf{\heiti 关键词：} #1}}
+	{{\heiti 关键词:} #1}}
 
 \newcommand{\enabstractname}{Abstract}
 \newenvironment{enabstract}[1]{%
@@ -307,6 +307,7 @@
 		\addcontentsline{toc}{section}{\contentsname}%
 		\markboth{\contentsname}{}%
 	}%
+	\pagestyle{PreContent}
     \@starttoc{toc}%
     \thispagestyle{PreContent}%
 	\afterpage{\pagenumbering{arabic}}%

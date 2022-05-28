@@ -16,6 +16,12 @@
 
 	\copyrightpage
 
+	% \newgeometry{a4paper,%摘要、正文、参考文献、致谢和附录双面打印
+	% 	top=2.5cm,
+	% 	bottom=2.0cm,
+	% 	left=3.0cm,
+	% 	right=2.0cm}
+
 	\begin{abstract}
 		中文摘要
 	\end{abstract}
@@ -459,14 +465,6 @@
 		\item 第二项。
 	\end{enumerate}
 
-	\subsection{致谢部分}
-	致谢部分使用如下代码撰写：
-	\begin{latexcode}
-		\begin{acknowledgement}
-			致谢的内容。
-		\end{acknowledgement}
-	\end{latexcode}
-
 	\subsection{文献引用}
 	先在\href{https://oversea.cnki.net/}{知网}、\href{https://scholar.google.com/}{Google Scholar}和\href{https://ui.adsabs.harvard.edu/}{NASA/ADS}等论文搜索引擎中搜索文献，再在其期刊官网导出参考文献的BibTeX数据。下载BibTeX数据的方法大同小异，为了方便起见，以百度学术为例。先\href{https://xueshu.baidu.com/usercenter/paper/show?paperid=1w410c80b32s0jc0xj6h00709e628265}{搜索文献}
 	\begin{figure}[H]
@@ -486,6 +484,14 @@
 		引用\cite{2019First}。引用\cite{向守平2008天体物理概论}。引用\cite{BQC_2020}。引用\cite{2019First,向守平2008天体物理概论,BQC_2020}。
 	\end{latexcode}
 	\textbf{编译得：}引用\cite{2019First}。引用\cite{向守平2008天体物理概论}。引用\cite{BQC_2020}。引用\cite{2019First,向守平2008天体物理概论,BQC_2020}。
+	
+	\subsection{致谢部分}
+	致谢部分使用如下代码撰写：
+	\begin{latexcode}
+		\begin{acknowledgement}
+			致谢的内容。
+		\end{acknowledgement}
+	\end{latexcode}
 	
 	\subsection{代码片段}
 	插入代码片段可使用如下命令：
@@ -524,7 +530,7 @@
 	\begin{acknowledgement}
 		致\footnote[1]{脚注1}谢\footnote[2]{脚注2}。
 	\end{acknowledgement}
-	
+
 	\appendix
 	\section{附录的标题}
 		\subsection{\LaTeX~Source Code}
