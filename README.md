@@ -4,6 +4,9 @@
 [![Compile LaTeX document](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Compile%20LaTeX%20document.yml/badge.svg)](https://github.com/Astro-Lee/YNU-thesis-bachelor/actions/workflows/Compile%20LaTeX%20document.yml)
 ![Repo Size](https://img.shields.io/github/repo-size/Astro-Lee/YNU-thesis-bachelor?label=Repo%20size)
 
+## 联系方式
+邮箱：1023976839@qq.com
+
 ## 介绍
 云南大学本科毕业论文(设计) LaTeX 模板根据[《云南大学本科学生毕业论文(设计)工作要求及规范》](http://www.jwc.ynu.edu.cn/info/1003/2052.htm)和[《云南大学本科毕业论文(设计)写作规范(试行)》](https://github.com/Astro-Lee/YNU-thesis-bachelor/releases/download/v0.0.1/pre-release.pdf)编写，**个人能力、精力有限，不保证完全符合规范！此外，该模板未经学校官方核准，如有顾虑，请不要使用！**
 
