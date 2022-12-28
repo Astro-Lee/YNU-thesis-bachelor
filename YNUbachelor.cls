@@ -6,7 +6,7 @@
 \newcommand\thesisversion{v0.0.1}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{YNUbachelor}[2021/12/24 YNU-thesis-bachelor \thesisversion, liruizhi@mail.ynu.edu.cn]
+\ProvidesClass{YNUbachelor}[2021/12/24 YNU-thesis-bachelor \thesisversion, 1023976839@qq.com]
 \LoadClass[twoside,UTF8,a4paper,scheme=plain,zihao=-4,fontset=none]{ctexart}
 
 %判断是否使用XeLaTeX编译

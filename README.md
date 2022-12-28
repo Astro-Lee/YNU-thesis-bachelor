@@ -52,7 +52,7 @@
 ## PDF转Word
  可使用 [Adobe PDF to Word](https://www.adobe.com/acrobat/online/pdf-to-word.html) 转换 `*.pdf` 文件。第二次转换文件时需要登录 Adobe 账号才能下载，建议在浏览器的“无痕浏览”、“隐私模式”等模式下访问以跳过强制登录(via. [hnuthesis](https://github.com/yusanshi/hnuthesis))。
 
- ## 压缩PDF文件
+## 压缩PDF文件
 [![压缩PDF文件](https://www.ilovepdf.com/img/ilovepdf.svg)](https://www.ilovepdf.com/zh-cn/compress_pdf)
 
 ## Star History
