@@ -78,11 +78,16 @@
 \newcommand{\otherFontSize}{\zihao{-4} \heiti}%三层及以下标题格式设置
 
 %页边距设置
+% 参考 https://github.com/ustctug/ustcthesis/blob/master/ustcthesis.cls 相关设置
 \RequirePackage[a4paper,
-	top=2.5cm,
-	bottom=2.0cm,
-	left=3.0cm,
-	right=2.0cm]{geometry}
+	% 根据 word 视觉效果调整的页边距，通过 powertoy 的 ruler 工具测量，效果相近
+	top           = 3.0cm,
+    bottom        = 2.7cm,
+    left          = 3.0cm,
+    right         = 2.0cm,
+    head          = 1.6cm,
+    foot          = 0.85cm,
+	]{geometry}
 	\addtolength{\oddsidemargin}{0cm}
 	\addtolength{\evensidemargin}{1cm} 
 
@@ -106,24 +111,28 @@
 }
 
 \ctexset{
+	% 关于字号和行距，见 https://blog.csdn.net/weixin_43849277/article/details/115201445#:~:text=1%20%E5%B0%8F%E5%9B%9B%E5%AD%97%E4%BD%93%E5%AF%B9%E5%BA%9412%E7%A3%85%EF%BC%8C12%20X%200.03527%20%3D%200.42324%20cm%202,cm%203%20%E6%8D%A2%E4%B8%BAbp%EF%BC%8C0.687765%20%2F%200.0353%20%3D%2019.4834%20bp
 	section = {
 		format ={\clearpage\phantomsection\centering\yiCengBiaoTi},
 		afterindent=true,
-		beforeskip={0.8em},
-		afterskip={0.5em},
+		% beforeskip={0.8em},
+		beforeskip=16.64bp,
+		% afterskip={0.5em},
+		afterskip=10.4bp,
 		fixskip = {false},
 	},
 	subsection = {
 		format ={\phantomsection\erCengBiaoTi},
 		afterindent=true,
-		beforeskip={0.5em},
-		afterskip={0.0em},
+		% beforeskip={0.5em},
+		beforeskip = 10.4bp,
+		afterskip= 0bp,
 		fixskip = {false},
 	},
 	subsubsection = {
 		format ={\phantomsection\otherFontSize},
 		afterindent=true,
-		beforeskip={0.5em},
+		beforeskip={0.0em},
 		afterskip={0.0em},
 		indent= {2\ccwd},
 		fixskip = {false},
@@ -259,7 +268,7 @@
 }
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 % \renewcommand{\sectionmark}[1]{\markboth{\CTEXifname{\CTEXthesection\quad}{}#1}{}}
-\setlength{\headheight}{12.64723pt}%页眉高度
+% \setlength{\headheight}{12.64723pt}%页眉高度
 
 %中英abstract, keywords设置
 \renewenvironment{abstract}[1]{%
@@ -315,7 +324,7 @@
 }
 
 %acknowledgement致谢设置
-\newcommand{\acknowledgementname}{致\texorpdfstring{\quad}{}谢}
+\newcommand{\acknowledgementname}{致\texorpdfstring{\qquad}{}谢}
 \newenvironment{acknowledgement}[1]{%
 	\section*{\acknowledgementname
 	\addcontentsline{toc}{section}{\acknowledgementname}
@@ -326,7 +335,7 @@
 
 %参考文献
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
-%\RequirePackage{gbt7714}
+% \RequirePackage{gbt7714}
 \bibliographystyle{references/gbt7714-numerical.bst}%gbt7714-author-year,gbt7714-numerical
 
 %natbib.sty
