@@ -1,7 +1,7 @@
 % Copyright
 % GitHub repository：https://github.com/Astro-Lee/YNU-thesis-bachelor
-% 作者：Lee
-% 邮箱：1023976839@qq.com
+% 作者：Rui-Zhi Li
+% 邮箱：liruizhi0871@gmail.com
 
 \newcommand\thesisversion{v0.0.1}
 
@@ -33,8 +33,8 @@
 \RequirePackage{xeCJK}
 
 %简体中文 宋体
-\setCJKmainfont{SimSun.ttf}[Path=fonts/]
-%\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
+%\setCJKmainfont{SimSun.ttf}[Path=fonts/]
+\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
 
 %简体中文 黑体
 \setCJKsansfont{SimHei.ttf}[Path=fonts/]
