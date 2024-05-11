@@ -160,20 +160,19 @@
 				{figures/frontcover.pdf}
 				\vfill}}
 			
-		\put(5.7cm,14.9cm){
-			\parbox[t][0cm][l]{26em}{\begin{spacing}{2.15}\centering\large \@title\end{spacing}}}
+		\put(7.7cm,13cm){\makebox[18em][c]{\large \@title}}
 		
-		\put(7.7cm,11.7cm){\makebox[18em][c]{\large \@school}}
+		\put(7.7cm,11.75cm){\makebox[18em][c]{\large \@school}}
 		
-		\put(7.7cm,10.3cm){\makebox[18em][c]{\large \@major}}
+		\put(7.7cm,10.49cm){\makebox[18em][c]{\large \@major}}
 		
-		\put(7.7cm,8.85cm){\makebox[18em][c]{\large \@author}}
+		\put(7.7cm,9.21cm){\makebox[18em][c]{\large \@author}}
 		
-		\put(7.7cm,7.38cm){\makebox[18em][c]{\large \@studentID}}
+		\put(7.7cm,7.93cm){\makebox[18em][c]{\large \@studentID}}
 		
-		\put(9.05cm,5.99cm){\makebox[15em][c]{\large \@teacher}}
+		\put(9.05cm,6.73cm){\makebox[15em][c]{\large \@teacher}}
 		
-		\put(8.2cm,4.105cm){%
+		\put(8.4cm,3.2cm){%
 			\makebox[2em][c]{\large \number\year}\hskip2em
 			\makebox[3.6em][c]{\large \number\month}\hskip1em
 			\makebox[3.6em][c]{\large \number\day}}
@@ -283,7 +282,7 @@
 	{\thispagestyle{PreContent}}
 
 \newcommand{\enkeywords}[1]{%
-	{\textbf{Key words:} #1}}
+	{\textbf{Key Words:} #1}}
 
 %contents目录设置
 %http://static.latexstudio.net/article/2019/0513/titlesec_c.pdf
