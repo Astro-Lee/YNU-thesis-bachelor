@@ -56,5 +56,6 @@
 [![压缩PDF文件](https://www.ilovepdf.com/img/ilovepdf.svg)](https://www.ilovepdf.com/zh-cn/compress_pdf)
 
 ## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=Astro-Lee/YNU-thesis-bachelor&type=Date)](https://star-history.com/#Astro-Lee/YNU-thesis-bachelor&Date)
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Astro-Lee/YNU-thesis-bachelor,Astro-Lee/YNUthesis&type=Date)](https://star-history.com/#Astro-Lee/YNU-thesis-bachelor&Astro-Lee/YNUthesis&Date)
 
