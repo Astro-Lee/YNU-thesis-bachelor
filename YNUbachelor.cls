@@ -68,6 +68,11 @@
 	Scale = MatchLowercase,
 ]
 
+\setlength{\parskip}{0bp} %段落间距
+
+% 浮动体和正文的间距
+\setlength{\textfloatsep}{22bp}
+
 \RequirePackage{amsmath,amsfonts,amssymb,siunitx}%数学公式扩展，花体，扩展符号的基础字体支持，扩展符号定义成命令，物理量的单位
 %\RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
 %\setmathfont{XITS Math}
@@ -98,12 +103,12 @@
 	punct=quanjiao,%全角标点
 	autoindent=2,
 	today=small,
-	contentsname={目\texorpdfstring{\quad}{}录},
+	contentsname={目\texorpdfstring{\qquad}{}录},
 	listfigurename={图目录},
 	listtablename={表目录},
 	figurename={图},
 	tablename={表},
-	abstractname={摘\texorpdfstring{\quad}{}要},
+	abstractname={摘\texorpdfstring{\qquad}{}要},
 	indexname={索引},
 	appendixname={附录},
 	bibname={参考文献},
@@ -132,7 +137,10 @@
 	subsubsection = {
 		format ={\phantomsection\otherFontSize},
 		afterindent=true,
-		beforeskip={0.0em},
+		% TODO: 这里的0.6 是临时方案，如果设置为0，会导致subsubsection标题和正文之间的间距过小。
+		% 另，设置为 0.6 em 依然有问题，如果二级标题和三级标题之间的没有正文，那么二级标题和三级标题之间的间距也会过小。
+		% beforeskip={0.0em},
+		beforeskip={0.6em},
 		afterskip={0.0em},
 		indent= {2\ccwd},
 		fixskip = {false},
@@ -313,7 +321,8 @@
 
 \renewcommand\tableofcontents{%
     \section*{\contentsname%
-		\addcontentsline{toc}{section}{\contentsname}%
+		% 将目录页中的目录页码标记去除
+		% \addcontentsline{toc}{section}{\contentsname}%
 		\markboth{\contentsname}{}%
 	}%
 	\pagestyle{PreContent}
@@ -332,6 +341,19 @@
 	}
 	#1}
 	{}
+
+% 总结与展望设置
+\newcommand{\conclusionname}{结论}
+\newenvironment{conclusion}[1]{
+	\section*{\conclusionname
+	\addcontentsline{toc}{section}{\conclusionname}
+	\markboth{\conclusionname}{}
+	}
+	#1}
+	{}
+
+
+
 
 %参考文献
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
