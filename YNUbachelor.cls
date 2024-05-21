@@ -200,6 +200,7 @@
 %封底
 \newcommand{\backcover}{
 	\AtEndDocument{%
+		\label{LastContentPage}
 		\clearpage~\thispagestyle{empty}
 		\AddToShipoutPicture*{%
 		\put(0,0){%
@@ -270,7 +271,7 @@
 	\fancyhf{}
     \fancyhead[OC]{\zihao{5} \leftmark}
 	\fancyhead[EC]{\zihao{5} \@title}
-    \fancyfoot[C]{\zihao{5} 第\thepage 页（共~\pageref{LastPage}~页）}
+    \fancyfoot[C]{\zihao{5} 第\thepage 页（共~\pageref{LastContentPage}~页）}
 	\renewcommand\headrulewidth{0.5pt}
 }
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
