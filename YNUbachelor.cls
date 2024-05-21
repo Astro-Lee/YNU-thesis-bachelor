@@ -297,7 +297,7 @@
 		\markboth{\enabstractname}{}
 		}
 	#1}
-	{\thispagestyle{PreContent}}
+	{\thispagestyle{PreContent}\pagenumbering{Roman}}
 
 \newcommand{\enkeywords}[1]{%
 	{\textbf{Key Words:} #1}}
@@ -326,6 +326,7 @@
 		\markboth{\contentsname}{}%
 	}%
 	\pagestyle{PreContent}
+	\pagenumbering{Roman}
     \@starttoc{toc}%
     \thispagestyle{PreContent}%
 	\afterpage{\pagenumbering{arabic}}%
