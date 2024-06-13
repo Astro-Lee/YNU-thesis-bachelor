@@ -34,7 +34,7 @@
 
 %简体中文 宋体
 %\setCJKmainfont{SimSun.ttf}[Path=fonts/]
-\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
+\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/]
 
 %简体中文 黑体
 \setCJKsansfont{SimHei.ttf}[Path=fonts/]
@@ -68,6 +68,11 @@
 	Scale = MatchLowercase,
 ]
 
+\setlength{\parskip}{0bp} %段落间距
+
+% 浮动体和正文的间距
+\setlength{\textfloatsep}{22bp}
+
 \RequirePackage{amsmath,amsfonts,amssymb,siunitx}%数学公式扩展，花体，扩展符号的基础字体支持，扩展符号定义成命令，物理量的单位
 %\RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
 %\setmathfont{XITS Math}
@@ -78,11 +83,16 @@
 \newcommand{\otherFontSize}{\zihao{-4} \heiti}%三层及以下标题格式设置
 
 %页边距设置
+% 参考 https://github.com/ustctug/ustcthesis/blob/master/ustcthesis.cls 相关设置
 \RequirePackage[a4paper,
-	top=2.5cm,
-	bottom=2.0cm,
-	left=3.0cm,
-	right=2.0cm]{geometry}
+	% 根据 word 视觉效果调整的页边距，通过 powertoy 的 ruler 工具测量，效果相近
+	top           = 3.0cm,
+    bottom        = 2.7cm,
+    left          = 3.0cm,
+    right         = 2.0cm,
+    head          = 1.6cm,
+    foot          = 0.85cm,
+	]{geometry}
 	\addtolength{\oddsidemargin}{0cm}
 	\addtolength{\evensidemargin}{1cm} 
 
@@ -93,12 +103,12 @@
 	punct=quanjiao,%全角标点
 	autoindent=2,
 	today=small,
-	contentsname={目\texorpdfstring{\quad}{}录},
+	contentsname={目\texorpdfstring{\qquad}{}录},
 	listfigurename={图目录},
 	listtablename={表目录},
 	figurename={图},
 	tablename={表},
-	abstractname={摘\texorpdfstring{\quad}{}要},
+	abstractname={摘\texorpdfstring{\qquad}{}要},
 	indexname={索引},
 	appendixname={附录},
 	bibname={参考文献},
@@ -106,24 +116,31 @@
 }
 
 \ctexset{
+	% 关于字号和行距，见 https://blog.csdn.net/weixin_43849277/article/details/115201445#:~:text=1%20%E5%B0%8F%E5%9B%9B%E5%AD%97%E4%BD%93%E5%AF%B9%E5%BA%9412%E7%A3%85%EF%BC%8C12%20X%200.03527%20%3D%200.42324%20cm%202,cm%203%20%E6%8D%A2%E4%B8%BAbp%EF%BC%8C0.687765%20%2F%200.0353%20%3D%2019.4834%20bp
 	section = {
 		format ={\clearpage\phantomsection\centering\yiCengBiaoTi},
 		afterindent=true,
-		beforeskip={0.8em},
-		afterskip={0.5em},
+		% beforeskip={0.8em},
+		beforeskip=16.64bp,
+		% afterskip={0.5em},
+		afterskip=10.4bp,
 		fixskip = {false},
 	},
 	subsection = {
 		format ={\phantomsection\erCengBiaoTi},
 		afterindent=true,
-		beforeskip={0.5em},
-		afterskip={0.0em},
+		% beforeskip={0.5em},
+		beforeskip = 10.4bp,
+		afterskip= 0bp,
 		fixskip = {false},
 	},
 	subsubsection = {
 		format ={\phantomsection\otherFontSize},
 		afterindent=true,
-		beforeskip={0.5em},
+		% TODO: 这里的0.6 是临时方案，如果设置为0，会导致subsubsection标题和正文之间的间距过小。
+		% 另，设置为 0.6 em 依然有问题，如果二级标题和三级标题之间的没有正文，那么二级标题和三级标题之间的间距也会过小。
+		% beforeskip={0.0em},
+		beforeskip={0.6em},
 		afterskip={0.0em},
 		indent= {2\ccwd},
 		fixskip = {false},
@@ -183,6 +200,7 @@
 %封底
 \newcommand{\backcover}{
 	\AtEndDocument{%
+		\label{LastContentPage}
 		\clearpage~\thispagestyle{empty}
 		\AddToShipoutPicture*{%
 		\put(0,0){%
@@ -253,12 +271,12 @@
 	\fancyhf{}
     \fancyhead[OC]{\zihao{5} \leftmark}
 	\fancyhead[EC]{\zihao{5} \@title}
-    \fancyfoot[C]{\zihao{5} 第\thepage 页（共~\pageref{LastPage}~页）}
+    \fancyfoot[C]{\zihao{5} 第\thepage 页（共~\pageref{LastContentPage}~页）}
 	\renewcommand\headrulewidth{0.5pt}
 }
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 % \renewcommand{\sectionmark}[1]{\markboth{\CTEXifname{\CTEXthesection\quad}{}#1}{}}
-\setlength{\headheight}{12.64723pt}%页眉高度
+% \setlength{\headheight}{12.64723pt}%页眉高度
 
 %中英abstract, keywords设置
 \renewenvironment{abstract}[1]{%
@@ -279,7 +297,7 @@
 		\markboth{\enabstractname}{}
 		}
 	#1}
-	{\thispagestyle{PreContent}}
+	{\thispagestyle{PreContent}\pagenumbering{Roman}}
 
 \newcommand{\enkeywords}[1]{%
 	{\textbf{Key Words:} #1}}
@@ -303,10 +321,12 @@
 
 \renewcommand\tableofcontents{%
     \section*{\contentsname%
-		\addcontentsline{toc}{section}{\contentsname}%
+		% 将目录页中的目录页码标记去除
+		% \addcontentsline{toc}{section}{\contentsname}%
 		\markboth{\contentsname}{}%
 	}%
 	\pagestyle{PreContent}
+	\pagenumbering{Roman}
     \@starttoc{toc}%
     \thispagestyle{PreContent}%
 	\afterpage{\pagenumbering{arabic}}%
@@ -314,7 +334,7 @@
 }
 
 %acknowledgement致谢设置
-\newcommand{\acknowledgementname}{致\texorpdfstring{\quad}{}谢}
+\newcommand{\acknowledgementname}{致\texorpdfstring{\qquad}{}谢}
 \newenvironment{acknowledgement}[1]{%
 	\section*{\acknowledgementname
 	\addcontentsline{toc}{section}{\acknowledgementname}
@@ -323,9 +343,22 @@
 	#1}
 	{}
 
+% 总结与展望设置
+\newcommand{\conclusionname}{结论}
+\newenvironment{conclusion}[1]{
+	\section*{\conclusionname
+	\addcontentsline{toc}{section}{\conclusionname}
+	\markboth{\conclusionname}{}
+	}
+	#1}
+	{}
+
+
+
+
 %参考文献
 \RequirePackage[square,numbers,super,sort&compress,sectionbib]{natbib}
-%\RequirePackage{gbt7714}
+% \RequirePackage{gbt7714}
 \bibliographystyle{references/gbt7714-numerical.bst}%gbt7714-author-year,gbt7714-numerical
 
 %natbib.sty
