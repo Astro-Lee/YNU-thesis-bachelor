@@ -34,7 +34,7 @@
 
 %简体中文 宋体
 %\setCJKmainfont{SimSun.ttf}[Path=fonts/]
-\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/, Mapping=fullwidth-stop]
+\setCJKmainfont{SimSun.ttf}[AutoFakeBold=true, Path=fonts/]
 
 %简体中文 黑体
 \setCJKsansfont{SimHei.ttf}[Path=fonts/]
